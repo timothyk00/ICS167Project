@@ -421,7 +421,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1026527440}
         m_TargetAssemblyTypeName: SceneSwitch, Assembly-CSharp
-        m_MethodName: Scene1
+        m_MethodName: startScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -17,6 +17,6 @@ public class SceneSwitch : MonoBehaviour
     }
     public void startScene()
     {
-        SceneManager.LoadScene("Start Scene");
+        SceneManager.LoadScene("StartScreen");
     }
 }
