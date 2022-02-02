@@ -650,6 +650,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 153382599334231777, guid: c0b392915aa61f84fb84e3e69c835c5a, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 153382599334231802, guid: c0b392915aa61f84fb84e3e69c835c5a, type: 3}
       propertyPath: player
       value: 
@@ -657,6 +661,14 @@ PrefabInstance:
     - target: {fileID: 153382599334231802, guid: c0b392915aa61f84fb84e3e69c835c5a, type: 3}
       propertyPath: timeStopped
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 153382599334231803, guid: c0b392915aa61f84fb84e3e69c835c5a, type: 3}
+      propertyPath: attack
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 153382599334231803, guid: c0b392915aa61f84fb84e3e69c835c5a, type: 3}
+      propertyPath: health
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 153382599334231803, guid: c0b392915aa61f84fb84e3e69c835c5a, type: 3}
       propertyPath: player

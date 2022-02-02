@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 153382599334231802}
   m_Layer: 0
   m_Name: Basic Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135,8 +135,8 @@ MonoBehaviour:
   enemy: {fileID: 153382599334231776}
   player: {fileID: 0}
   enemyDistanceRun: 4
-  health: 10
-  attack: 5
+  health: 30
+  attack: 10
 --- !u!114 &153382599334231802
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -34,7 +34,7 @@ public class EnemyIdle : MonoBehaviour
             Vector3 v = startingPosition;
             speed = temp;
             v.z += distanceMove * Mathf.Sin(Time.time * speed);
-            transform.position= v;
+            transform.position = v;
         }
         else
         {
