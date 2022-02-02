@@ -7,6 +7,7 @@ public class Fireball : MonoBehaviour
     private float fbSpeed = 10.0f;
     private float duration = 2.0f; 
     private float lifeTimer;
+    public bool burn = true;
     void Start()
     {
         lifeTimer = duration;

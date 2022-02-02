@@ -1,16 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 
 
 public class PlayerMovementController : MonoBehaviour
 {
     public int _playerNum = 1;
-    public int _health = 100;
-    public Slider _healthSlider;
-
     public float _moveSpeed = 5f;
     public float _turnSpeed = 90f;
 
@@ -44,19 +40,6 @@ public class PlayerMovementController : MonoBehaviour
         Vector3 movement = new Vector3(_horiInputValue, 0.0f, -_vertInputValue);
         transform.LookAt(movement + transform.position);
         transform.Translate(movement * _moveSpeed * Time.deltaTime, Space.World);
-    }
-
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Enemy")
-        {
-            Debug.Log("collided with enemy");
-            _health -= 10;   // change with enemy damage
-            _healthSlider.value = _health;
-
-            if (_health == 0)
-                gameObject.SetActive(false);
-        }
     }
 }
 

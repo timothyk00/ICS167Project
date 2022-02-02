@@ -57,8 +57,11 @@ namespace ElementFactory
 		public override string element
 		{
 			get{return name;}
-		}		public override void useAbility(Vector3 playerPosition,Vector3 playerForward)
+		}		
+		public override void useAbility(Vector3 playerPosition,Vector3 playerForward)
 		{
+				GameObject healAura = GameObject.Instantiate(Resources.Load("HealAura")) as GameObject;
+				healAura.transform.position = playerPosition;		
 		}
 	}
 	public class EarthElement: Ability

@@ -22,7 +22,7 @@ public class ElementPickup : MonoBehaviour
         PlayerWeaponController cs = player.GetComponent<PlayerWeaponController>();
         if (cs.weapons.Count==2)
         {
-            cs.weapons.Insert(0, myFactory.GetAbility(elementType));
+            cs.weapons = new List<Ability>(){cs.weapons[0], myFactory.GetAbility(elementType)};
             cs.UpdateWeapons();
         }
         else
