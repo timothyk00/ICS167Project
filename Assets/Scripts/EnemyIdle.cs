@@ -3,23 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+//Kevin
 public class EnemyIdle : MonoBehaviour
 {  
+    public NavMeshAgent enemy;
+    public GameObject player;
+    
+    public float enemyDistanceRun = 4.0f;
+
     [SerializeField] float distanceMove;
     [SerializeField] float speed;
     
-    public NavMeshAgent enemy;
-    public GameObject player;
-    public float enemyDistanceRun = 4.0f;
+    float temp;
 
     private Vector3 startingPosition;
-    bool inRange = false;
 
-    
     void Start()
     {
         startingPosition = transform.position;
         enemy = GetComponent<NavMeshAgent>();
+        temp = speed;
     }
 
     void Update()
@@ -27,14 +30,21 @@ public class EnemyIdle : MonoBehaviour
         float distance = Vector3.Distance(transform.position, player.transform.position);
         if (distance >= enemyDistanceRun)
         {
+            
             Vector3 v = startingPosition;
-
+            speed = temp;
             v.z += distanceMove * Mathf.Sin(Time.time * speed);
             transform.position= v;
         }
         else
         {
-            startingPosition = transform.position;
+            Stop();
         }
+    }
+
+    void Stop()
+    {
+        startingPosition = transform.position;
+        speed = 0;
     }
 }

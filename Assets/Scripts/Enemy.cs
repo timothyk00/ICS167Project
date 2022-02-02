@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+//Kevin
 public class Enemy : MonoBehaviour
 {
     public NavMeshAgent enemy;
@@ -11,8 +12,8 @@ public class Enemy : MonoBehaviour
     //How far the enemies sight is
     public float enemyDistanceRun = 4.0f;
 
-    //Health
     [SerializeField] int health;
+    [SerializeField] int attack;
 
     
     void Start()
