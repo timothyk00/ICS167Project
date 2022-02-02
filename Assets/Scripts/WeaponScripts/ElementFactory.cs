@@ -69,6 +69,9 @@ namespace ElementFactory
 			get{return name;}
 		}		public override void useAbility(Vector3 playerPosition,Vector3 playerForward)
 		{
+		GameObject earthBlock = GameObject.Instantiate(Resources.Load("EarthBlock")) as GameObject;
+		earthBlock.transform.position = playerPosition+(playerForward*2);
+		earthBlock.transform.forward = playerForward;
 		}
 	}
 

@@ -22,4 +22,11 @@ public class Fireball : MonoBehaviour
       }
 
     }
+        public void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "block")
+        {   
+            Destroy(gameObject);
+        }
+    }
 }

@@ -33,20 +33,17 @@ public class PlayerWeaponController : MonoBehaviour
     {
         if (weapons.Count != 0)
         {
-            Debug.Log("fired");
             weapons[0].useAbility(playerPosition,playerForward);
         }
     }
 
     private void Swap()
     {
-        //Debug.Log("swapping weapons");
         if (weapons.Count == 2)
-        {
-            Ability holdElement = weapons[0];
-            weapons.Insert(0, weapons[1]);
-            weapons.Add(holdElement);
+            {
+            weapons.Reverse();
             }
+        UpdateWeapons();
     }
 
     public void UpdateWeapons()
