@@ -11,10 +11,9 @@ public class EnemyIdle : MonoBehaviour
     
     public float _enemyDistanceRun = 4.0f;
 
-    [SerializeField] float _distanceMove;
-    [SerializeField] float _speed;
+    public float _distanceMove = 2f;
+    public float _speed = 1f;
     
-    float _temp;
 
     private Vector3 _startingPosition;
 
@@ -22,7 +21,6 @@ public class EnemyIdle : MonoBehaviour
     {
         _startingPosition = transform.position;
         _enemy = GetComponent<NavMeshAgent>();
-        _temp = _speed;
     }
 
     void Update()
@@ -33,7 +31,6 @@ public class EnemyIdle : MonoBehaviour
         {
             //move back and forth until player in sight
             Vector3 v = _startingPosition;
-            _speed = _temp;
             v.z += _distanceMove * Mathf.Sin(Time.time * _speed);
             transform.position = v;
         }
@@ -48,6 +45,5 @@ public class EnemyIdle : MonoBehaviour
     {
         //Grab new position to continue moving back and forth
         _startingPosition = transform.position;
-        _speed = 0;
     }
 }
