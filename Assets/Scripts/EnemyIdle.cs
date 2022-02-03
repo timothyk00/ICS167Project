@@ -28,9 +28,10 @@ public class EnemyIdle : MonoBehaviour
     void Update()
     {   
         float distance = Vector3.Distance(transform.position, _player.transform.position);
+        //If player not in sight
         if (distance >= _enemyDistanceRun)
         {
-            
+            //move back and forth until player in sight
             Vector3 v = _startingPosition;
             _speed = _temp;
             v.z += _distanceMove * Mathf.Sin(Time.time * _speed);
@@ -38,12 +39,14 @@ public class EnemyIdle : MonoBehaviour
         }
         else
         {
+            //Stop idle
             Stop();
         }
     }
 
     void Stop()
     {
+        //Grab new position to continue moving back and forth
         _startingPosition = transform.position;
         _speed = 0;
     }

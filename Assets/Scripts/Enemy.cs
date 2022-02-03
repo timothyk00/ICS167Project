@@ -25,9 +25,10 @@ public class Enemy : MonoBehaviour
     {
         float distance = Vector3.Distance(transform.position, _player.transform.position);
 
-        //Run at player
+        //Run at player if in sight
         if (distance < _enemyDistanceRun)
         {
+            //chase
             Vector3 facePlayer = transform.position - _player.transform.position;
             Vector3 newPos = transform.position - facePlayer;
             _enemy.SetDestination(newPos);
