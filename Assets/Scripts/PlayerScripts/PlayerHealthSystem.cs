@@ -33,12 +33,12 @@ public class PlayerHealthSystem : MonoBehaviour
             _healthSlider.value = _health;
 
         }
-        if(collision.gameObject.tag == "projectile")
+        if(collision.gameObject.tag == "projectile" || collision.gameObject.tag == "bolt")
         {
             _health-=10;
             _healthSlider.value = _health;
         }
-        if(collision.gameObject.tag == "heal")
+        if(collision.gameObject.tag == "heal" && _health < 100)
         {
             _health+=10;
             _healthSlider.value = _health;

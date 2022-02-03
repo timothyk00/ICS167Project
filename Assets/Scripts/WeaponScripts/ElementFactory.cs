@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Cleon Doan
 namespace ElementFactory
 {
 
@@ -25,19 +25,22 @@ namespace ElementFactory
 		public override void useAbility(Vector3 playerPosition,Vector3 playerForward)
 		{
 		GameObject fireBall = GameObject.Instantiate(Resources.Load("FireProjectile")) as GameObject;
-		fireBall.transform.position = playerPosition+(playerForward*2);
+		fireBall.transform.position = playerPosition+(playerForward*3f);
 		fireBall.transform.forward = playerForward;
 		}
 	}
 	public class ElectricElement: Ability
 	{
-		private string name = "Earth";
+		private string name = "Electric";
 		public override string element
 		{
 			get{return name;}
 		}
 		public override void useAbility(Vector3 playerPosition,Vector3 playerForward)
 		{
+		GameObject electricBolt = GameObject.Instantiate(Resources.Load("ElectricBolt")) as GameObject;
+		electricBolt.transform.position = playerPosition+(playerForward*7f);
+		electricBolt.transform.forward = playerForward;
 		}
 	}
 	public class IceElement: Ability
@@ -49,6 +52,9 @@ namespace ElementFactory
 		}
 		public override void useAbility(Vector3 playerPosition,Vector3 playerForward)
 		{
+		GameObject iceBall = GameObject.Instantiate(Resources.Load("IceProjectile")) as GameObject;
+		iceBall.transform.position = playerPosition+(playerForward*3f);
+		iceBall.transform.forward = playerForward;
 		}
 	}
 	public class HealElement: Ability

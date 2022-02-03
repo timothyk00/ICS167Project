@@ -9,6 +9,7 @@ TagManager:
   - projectile
   - block
   - heal
+  - bolt
   layers:
   - Default
   - TransparentFX
