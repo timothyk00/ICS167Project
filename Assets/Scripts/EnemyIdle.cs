@@ -6,34 +6,34 @@ using UnityEngine.AI;
 //Kevin
 public class EnemyIdle : MonoBehaviour
 {  
-    public NavMeshAgent enemy;
-    public GameObject player;
+    public NavMeshAgent _enemy;
+    public GameObject _player;
     
-    public float enemyDistanceRun = 4.0f;
+    public float _enemyDistanceRun = 4.0f;
 
-    [SerializeField] float distanceMove;
-    [SerializeField] float speed;
+    [SerializeField] float _distanceMove;
+    [SerializeField] float _speed;
     
-    float temp;
+    float _temp;
 
-    private Vector3 startingPosition;
+    private Vector3 _startingPosition;
 
     void Start()
     {
-        startingPosition = transform.position;
-        enemy = GetComponent<NavMeshAgent>();
-        temp = speed;
+        _startingPosition = transform.position;
+        _enemy = GetComponent<NavMeshAgent>();
+        _temp = _speed;
     }
 
     void Update()
     {   
-        float distance = Vector3.Distance(transform.position, player.transform.position);
-        if (distance >= enemyDistanceRun)
+        float distance = Vector3.Distance(transform.position, _player.transform.position);
+        if (distance >= _enemyDistanceRun)
         {
             
-            Vector3 v = startingPosition;
-            speed = temp;
-            v.z += distanceMove * Mathf.Sin(Time.time * speed);
+            Vector3 v = _startingPosition;
+            _speed = _temp;
+            v.z += _distanceMove * Mathf.Sin(Time.time * _speed);
             transform.position = v;
         }
         else
@@ -44,7 +44,7 @@ public class EnemyIdle : MonoBehaviour
 
     void Stop()
     {
-        startingPosition = transform.position;
-        speed = 0;
+        _startingPosition = transform.position;
+        _speed = 0;
     }
 }
