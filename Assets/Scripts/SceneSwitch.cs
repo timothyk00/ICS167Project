@@ -8,7 +8,7 @@ public class SceneSwitch : MonoBehaviour
     // Start is called before the first frame update
     public void Scene1() //Loads level1 when function called
     {
-        SceneManager.LoadScene("Main"); //change to level1
+        SceneManager.LoadScene("Level 1"); //change to level1
     }
 
     public void endScene() //Loads ending scene when function called

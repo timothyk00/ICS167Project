@@ -9,7 +9,7 @@ TagManager:
   - projectile
   - block
   - heal
-  - bolt
+  - Goal
   layers:
   - Default
   - TransparentFX
