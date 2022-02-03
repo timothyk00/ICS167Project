@@ -19,6 +19,8 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         _enemy = GetComponent<NavMeshAgent>();
+        _player = GameObject.Find("Player"); //currently finds the player, but will be changed to find any object with Player tag
+
     }
 
     void Update()
@@ -34,19 +36,17 @@ public class Enemy : MonoBehaviour
             _enemy.SetDestination(newPos);
         }
     }
-
-    public void TakeDamage(int damage)
+    void OnCollisionEnter(Collision collision)
     {
-        _health -= damage;
+        if(collision.gameObject.tag == "projectile" || collision.gameObject.tag == "bolt")
+        {
+            _health-=10;
+        }
 
         if (_health <= 0)
         {
-            Invoke(nameof(DestroyEnemy), 0.5f);
+            Destroy(gameObject);
         }
     }
 
-    private void DestroyEnemy()
-    {
-        Destroy(gameObject);
-    }
 }

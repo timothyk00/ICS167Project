@@ -24,9 +24,9 @@ public class Iceball : MonoBehaviour
       }
 
     }
-        public void OnTriggerEnter(Collider other)
+    void OnCollisionEnter(Collision other)
     {   //must only collide with objects with these tags.
-        if (other.tag == "block" || other.tag == "Enemy" || other.tag == "Player")
+        if (other.gameObject.tag == "block" || other.gameObject.tag == "Enemy" || other.gameObject.tag == "Player")
         {   
             Destroy(gameObject);
         }

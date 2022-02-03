@@ -21,6 +21,8 @@ public class EnemyIdle : MonoBehaviour
     {
         _startingPosition = transform.position;
         _enemy = GetComponent<NavMeshAgent>();
+        _player = GameObject.Find("Player"); //currently finds the player, but will be changed to find any object with Player tag
+
     }
 
     void Update()

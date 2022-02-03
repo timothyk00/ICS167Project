@@ -21,9 +21,9 @@ public class Earthblock : MonoBehaviour
             Destroy(gameObject); //Destroy after lifetime has elapsed.
           } 
     }
-    public void OnTriggerEnter(Collider other)
+    void OnCollisionEnter(Collision other)
     {
-    if (other.tag == "projectile") //Destroy itself when it collides with a projectile
+    if (other.gameObject.tag == "projectile") //Destroy itself when it collides with a projectile
     {   
         Destroy(gameObject);
     }
