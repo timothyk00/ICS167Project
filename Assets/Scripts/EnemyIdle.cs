@@ -6,45 +6,48 @@ using UnityEngine.AI;
 //Kevin
 public class EnemyIdle : MonoBehaviour
 {  
-    public NavMeshAgent enemy;
-    public GameObject player;
+    public NavMeshAgent _enemy;
+    public GameObject _player;
     
-    public float enemyDistanceRun = 4.0f;
+    public float _enemyDistanceRun = 4.0f;
 
-    [SerializeField] float distanceMove;
-    [SerializeField] float speed;
+    [SerializeField] float _distanceMove;
+    [SerializeField] float _speed;
     
-    float temp;
+    float _temp;
 
-    private Vector3 startingPosition;
+    private Vector3 _startingPosition;
 
     void Start()
     {
-        startingPosition = transform.position;
-        enemy = GetComponent<NavMeshAgent>();
-        temp = speed;
+        _startingPosition = transform.position;
+        _enemy = GetComponent<NavMeshAgent>();
+        _temp = _speed;
     }
 
     void Update()
     {   
-        float distance = Vector3.Distance(transform.position, player.transform.position);
-        if (distance >= enemyDistanceRun)
+        float distance = Vector3.Distance(transform.position, _player.transform.position);
+        //If player not in sight
+        if (distance >= _enemyDistanceRun)
         {
-            
-            Vector3 v = startingPosition;
-            speed = temp;
-            v.z += distanceMove * Mathf.Sin(Time.time * speed);
+            //move back and forth until player in sight
+            Vector3 v = _startingPosition;
+            _speed = _temp;
+            v.z += _distanceMove * Mathf.Sin(Time.time * _speed);
             transform.position = v;
         }
         else
         {
+            //Stop idle
             Stop();
         }
     }
 
     void Stop()
     {
-        startingPosition = transform.position;
-        speed = 0;
+        //Grab new position to continue moving back and forth
+        _startingPosition = transform.position;
+        _speed = 0;
     }
 }

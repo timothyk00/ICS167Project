@@ -6,44 +6,40 @@ using UnityEngine.AI;
 //Kevin
 public class Enemy : MonoBehaviour
 {
-    public NavMeshAgent enemy;
-    public GameObject player;
+    public NavMeshAgent _enemy;
+    public GameObject _player;
     
     //How far the enemies sight is
-    public float enemyDistanceRun = 4.0f;
+    public float _enemyDistanceRun = 4.0f;
 
-    [SerializeField] int health;
-    [SerializeField] int attack;
+    [SerializeField] int _health;
+    [SerializeField] int _attack;
 
     
     void Start()
     {
-        enemy = GetComponent<NavMeshAgent>();
+        _enemy = GetComponent<NavMeshAgent>();
     }
 
     void Update()
     {
-        float distance = Vector3.Distance(transform.position, player.transform.position);
+        float distance = Vector3.Distance(transform.position, _player.transform.position);
 
-        //Run at player
-        if (distance < enemyDistanceRun)
+        //Run at player if in sight
+        if (distance < _enemyDistanceRun)
         {
-            Vector3 facePlayer = transform.position - player.transform.position;
+            //chase
+            Vector3 facePlayer = transform.position - _player.transform.position;
             Vector3 newPos = transform.position - facePlayer;
-            enemy.SetDestination(newPos);
+            _enemy.SetDestination(newPos);
         }
-    }
-
-    private void AttackPlayer()
-    {
-
     }
 
     public void TakeDamage(int damage)
     {
-        health -= damage;
+        _health -= damage;
 
-        if (health <= 0)
+        if (_health <= 0)
         {
             Invoke(nameof(DestroyEnemy), 0.5f);
         }
