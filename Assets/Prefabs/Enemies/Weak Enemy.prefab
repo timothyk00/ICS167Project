@@ -136,8 +136,8 @@ MonoBehaviour:
   _enemy: {fileID: 0}
   _player: {fileID: 0}
   _enemyDistanceRun: 4
-  _health: 0
-  _attack: 0
+  _health: 10
+  _attack: 5
 --- !u!114 &1461430686202753208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,8 +153,8 @@ MonoBehaviour:
   _enemy: {fileID: 0}
   _player: {fileID: 0}
   _enemyDistanceRun: 4
-  _distanceMove: 0
-  _speed: 0
+  _distanceMove: 5
+  _speed: 1
 --- !u!54 &-1666762415430739253
 Rigidbody:
   m_ObjectHideFlags: 0

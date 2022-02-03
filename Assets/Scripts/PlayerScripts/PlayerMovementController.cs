@@ -8,7 +8,7 @@ public class PlayerMovementController : MonoBehaviour
 {
     public int _playerNum = 1;
     public float _moveSpeed = 5f;
-    public float _turnSpeed = 90f;
+    public float _turnSpeed = 45f;
 
     private string _horiAxisName;
     private string _vertAxisName;
@@ -37,9 +37,8 @@ public class PlayerMovementController : MonoBehaviour
         _horiInputValue = Input.GetAxis(_horiAxisName);
         _vertInputValue = Input.GetAxis(_vertAxisName);
 
-        Vector3 movement = new Vector3(_horiInputValue, 0.0f, -_vertInputValue);
-        transform.LookAt(movement + transform.position);
-        transform.Translate(movement * _moveSpeed * Time.deltaTime, Space.World);
+        _rb.velocity = transform.forward * _horiInputValue * _moveSpeed * 100f * Time.fixedDeltaTime;
+        transform.Rotate((transform.up * _vertInputValue) * _turnSpeed * Time.fixedDeltaTime);
     }
 }
 

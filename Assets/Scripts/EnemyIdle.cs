@@ -27,6 +27,11 @@ public class EnemyIdle : MonoBehaviour
 
     void Update()
     {   
+        
+    }
+
+    private void FixedUpdate()
+    {
         float distance = Vector3.Distance(transform.position, _player.transform.position);
         //If player not in sight
         if (distance >= _enemyDistanceRun)

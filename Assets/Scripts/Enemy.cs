@@ -12,8 +12,8 @@ public class Enemy : MonoBehaviour
     //How far the enemies sight is
     public float _enemyDistanceRun = 4.0f;
 
-    [SerializeField] int _health;
-    [SerializeField] int _attack;
+    public float _health = 10f;
+    public float _attack = 5f;
 
     
     void Start()
@@ -24,6 +24,11 @@ public class Enemy : MonoBehaviour
     }
 
     void Update()
+    {
+        
+    }
+
+    private void FixedUpdate()
     {
         float distance = Vector3.Distance(transform.position, _player.transform.position);
 
@@ -36,6 +41,8 @@ public class Enemy : MonoBehaviour
             _enemy.SetDestination(newPos);
         }
     }
+
+
     void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "projectile" || collision.gameObject.tag == "bolt")
