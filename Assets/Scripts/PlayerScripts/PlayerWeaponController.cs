@@ -4,24 +4,26 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using ElementFactory;
+
+//Timothy Kwon, Cleon Doan
+
 public class PlayerWeaponController : MonoBehaviour
 {
     public List<Ability> weapons = new List<Ability>(); // index 0 = primary, index 1 = secondary
     public TextMeshProUGUI _primText;
     public TextMeshProUGUI _secText;
-    public Vector3 playerPosition;
-    public Vector3 playerForward;
+    GameObject _player;
+
     // Start is called before the first frame update
     void Start()
     {
         UpdateWeapons();
+        _player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        playerPosition = GameObject.Find("Player").transform.position;
-        playerForward = GameObject.Find("Player").transform.forward;
         if (Input.GetKeyDown("e"))
             Swap();
 
@@ -33,16 +35,15 @@ public class PlayerWeaponController : MonoBehaviour
     {
         if (weapons.Count != 0)
         {
-            weapons[0].useAbility(playerPosition,playerForward);
+            weapons[0].useAbility(_player.transform.position, _player.transform.forward);
         }
     }
 
     private void Swap()
     {
         if (weapons.Count == 2)
-            {
             weapons.Reverse();
-            }
+
         UpdateWeapons();
     }
 

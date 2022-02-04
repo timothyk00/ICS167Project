@@ -27,7 +27,8 @@ public class ElementPickup : MonoBehaviour
         }
         else
         {
-            cs.weapons.Add(myFactory.GetAbility(elementType)); 
+            if (cs.weapons.IndexOf(myFactory.GetAbility(elementType)) == -1)
+                cs.weapons.Add(myFactory.GetAbility(elementType));
             cs.UpdateWeapons();
         }
         Destroy(gameObject);
