@@ -12,30 +12,33 @@ public class PlayerWeaponController : MonoBehaviour
     public List<Ability> weapons = new List<Ability>(); // index 0 = primary, index 1 = secondary
     public TextMeshProUGUI _primText;
     public TextMeshProUGUI _secText;
-    GameObject _player;
+
+    private string _fireButton;
+    private string _swapButton;
 
     // Start is called before the first frame update
     void Start()
     {
+        _fireButton = "Fire" + this.GetComponent<PlayerMovementController>()._playerNum;
+        _swapButton = "Swap" + this.GetComponent<PlayerMovementController>()._playerNum;
         UpdateWeapons();
-        _player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("e"))
+        if (Input.GetButtonDown(_swapButton))
             Swap();
 
-        if (Input.GetKeyDown("space"))
-            useWeapon();
+        if (Input.GetButtonDown(_fireButton))
+            UseWeapon();
     }
 
-    private void useWeapon()
+    private void UseWeapon()
     {
         if (weapons.Count != 0)
         {
-            weapons[0].useAbility(_player.transform.position, _player.transform.forward);
+            weapons[0].useAbility(this.transform.position, this.transform.forward);
         }
     }
 

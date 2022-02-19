@@ -21,11 +21,49 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         _enemy = this.GetComponent<NavMeshAgent>();
-        _player = GameObject.FindGameObjectWithTag("Player"); //finds Player tag
-        _playerMove = _player.GetComponent<PlayerMovementController>();
         _healthSlider.maxValue = _health;
     }
 
+    // Wander if Player out of range
+    // Pursue if Player in range
+    void Update()
+    {
+        _player = GetClosestPlayer();
+
+        if (_player)
+        {
+            _playerMove = _player.GetComponent<PlayerMovementController>();
+
+            if (!PlayerInRange())
+            {
+                Wander();
+            }
+            else
+            {
+                Pursue();
+            }
+        }
+        
+    }
+
+    GameObject GetClosestPlayer()
+    {
+        GameObject[] players = GameManager.GManager.GetPlayers();
+
+        if (players.Length == 1)
+            return players[0];
+        else if (players.Length == 2)
+        {
+            if (Vector3.Distance(this.transform.position, players[0].transform.position)
+                < Vector3.Distance(this.transform.position, players[1].transform.position))
+                return players[0];
+            else
+                return players[1];
+        }
+        else
+            return null;
+
+    }
 
     // Walk to a location on NavMesh
     void Seek(Vector3 location)
@@ -104,20 +142,6 @@ public class Enemy : MonoBehaviour
         if (Vector3.Distance(this.transform.position, _player.transform.position) < 10)
             return true;
         return false;
-    }
-
-    // Wander if Player out of range
-    // Pursue if Player in range
-    void Update()
-    {
-        if (!PlayerInRange())
-        {
-            Wander();
-        }
-        else
-        {
-            Pursue();
-        }
     }
 
     // Take Damage
