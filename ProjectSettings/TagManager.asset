@@ -10,6 +10,8 @@ TagManager:
   - block
   - heal
   - Goal
+  - bolt
+  - wave
   layers:
   - Default
   - TransparentFX
