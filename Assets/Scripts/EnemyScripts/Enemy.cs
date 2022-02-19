@@ -9,14 +9,14 @@ using UnityEngine.AI;
 //NavMesh Bot Tutorial
 public class Enemy : MonoBehaviour
 {
-    NavMeshAgent _enemy;
-    GameObject _player;   
-    PlayerMovementController _playerMove;
+    protected NavMeshAgent _enemy;
+    private GameObject _player;   
+    private PlayerMovementController _playerMove;
 
-    public int _health = 10;
-    public int _attack = 5;
+    private int _health = 15;
+    private int _attack = 10;
 
-    public Slider _healthSlider;
+    private Slider _healthSlider;
     
     void Start()
     {
@@ -29,7 +29,6 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         _player = GetClosestPlayer();
-
         if (_player)
         {
             _playerMove = _player.GetComponent<PlayerMovementController>();
