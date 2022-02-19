@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         _enemy = this.GetComponent<NavMeshAgent>();
-        _healthSlider.maxValue = _health;
+        //_healthSlider.maxValue = _health;
     }
 
     // Wander if Player out of range

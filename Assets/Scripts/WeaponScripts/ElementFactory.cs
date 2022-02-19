@@ -25,8 +25,8 @@ namespace ElementFactory
 		public override void useAbility(Vector3 playerPosition,Vector3 playerForward)
 		{
 		GameObject fireBall = GameObject.Instantiate(Resources.Load("FireProjectile")) as GameObject;
-		fireBall.transform.position = playerPosition+(playerForward*3f);
-		fireBall.transform.forward = playerForward;
+			fireBall.transform.position = playerPosition + (playerForward * 3.8f);
+			fireBall.transform.forward = playerForward;
 		}
 	}
 	public class ElectricElement: Ability

@@ -5,8 +5,8 @@ using UnityEngine;
 //This script handles the fire element projectile behaviour.
 public class Fireball : MonoBehaviour
 {
-    private float fbSpeed = 10.0f;
-    private float duration = 2.0f; 
+    private float fbSpeed = 0.2f;
+    private float duration = 1.0f; 
     private float lifeTimer;
     public bool burn = true; //To later be used to add effects to enemies when they collide with this particle.
     void Start()
@@ -16,8 +16,8 @@ public class Fireball : MonoBehaviour
 
     void Update()
     {
-       transform.position += transform.forward*fbSpeed*Time.deltaTime;
-       lifeTimer-=Time.deltaTime;
+        transform.position += transform.forward * fbSpeed * Time.deltaTime;
+        lifeTimer -= Time.deltaTime;
       if (lifeTimer <=0f)
       {
         Destroy(gameObject);  //Destroyed when lifetimer is gone
@@ -25,11 +25,12 @@ public class Fireball : MonoBehaviour
 
     }
     void OnCollisionEnter(Collision other)
-    {//must only collide with objects with these tags.
-        if (other.gameObject.tag == "block" || other.gameObject.tag == "Enemy" || other.gameObject.tag == "Player")
-        {   
-            Destroy(gameObject);
+    {   //must only collide with objects with these tags.
+        if (other.gameObject.tag == "projectile")
+        {
+            //Destroy(gameObject);
         }
+
 
     }
 }

@@ -21,4 +21,13 @@ public class Electricbolt : MonoBehaviour
       }
 
     }
+    void OnCollisionEnter(Collision other)
+    {   //must only collide with objects with these tags.
+        if (other.gameObject.tag == "block")
+        {
+            Destroy(gameObject);
+        }
+
+
+    }
 }
