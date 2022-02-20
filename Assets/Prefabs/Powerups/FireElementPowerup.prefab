@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 823423888574776983}
   - component: {fileID: 823423888574776982}
   - component: {fileID: 823423888574776977}
-  - component: {fileID: 823423888574776976}
   - component: {fileID: -8163710620453502755}
+  - component: {fileID: 1691392265}
   m_Layer: 0
   m_Name: FireElementPowerup
   m_TagString: Powerup
@@ -97,20 +97,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &823423888574776976
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 823423888574776978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62a5e15697988fb49b1c0d9c83220d81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  elementType: fire
-  player: {fileID: 0}
 --- !u!54 &-8163710620453502755
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -127,3 +113,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1691392265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 823423888574776978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efd08351cb39d474ba30e5839a81644f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  elementType: fire

@@ -12,12 +12,11 @@ GameObject:
   - component: {fileID: 1204519143914035094}
   - component: {fileID: 6787542228137958425}
   - component: {fileID: 7260923471112215428}
-  - component: {fileID: 252364385497698543}
   - component: {fileID: 6361398645765968256}
-  - component: {fileID: 280011223}
+  - component: {fileID: 1472852546}
   m_Layer: 0
   m_Name: HealElementPowerup
-  m_TagString: Untagged
+  m_TagString: Powerup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,20 +97,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &252364385497698543
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9185473669052522719}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62a5e15697988fb49b1c0d9c83220d81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  elementType: heal
-  player: {fileID: 0}
 --- !u!54 &6361398645765968256
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -128,7 +113,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &280011223
+--- !u!114 &1472852546
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,6 +122,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 9185473669052522719}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64bd859f880b8f347bcbec2e4a679942, type: 3}
+  m_Script: {fileID: 11500000, guid: efd08351cb39d474ba30e5839a81644f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  elementType: heal

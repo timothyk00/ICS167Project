@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 7980835398274579072}
   - component: {fileID: 3337945179304252403}
   - component: {fileID: 8536559330393966543}
-  - component: {fileID: 4962089778829690622}
   - component: {fileID: 6564071194844849386}
+  - component: {fileID: 202224601}
   m_Layer: 0
   m_Name: ElectricElementPowerup
-  m_TagString: Untagged
+  m_TagString: Powerup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,20 +97,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4962089778829690622
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5159705133792349876}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62a5e15697988fb49b1c0d9c83220d81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  elementType: electric
-  player: {fileID: 0}
 --- !u!54 &6564071194844849386
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -127,3 +113,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &202224601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5159705133792349876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efd08351cb39d474ba30e5839a81644f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  elementType: electric
