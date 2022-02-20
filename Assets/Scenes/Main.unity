@@ -144,19 +144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7006881832838147248, guid: 2814322b2bc84bb4e9914ae6098bdfd9, type: 3}
       propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7006881832838147248, guid: 2814322b2bc84bb4e9914ae6098bdfd9, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.33271226
-      objectReference: {fileID: 0}
-    - target: {fileID: 7006881832838147248, guid: 2814322b2bc84bb4e9914ae6098bdfd9, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.3327123
-      objectReference: {fileID: 0}
-    - target: {fileID: 7006881832838147248, guid: 2814322b2bc84bb4e9914ae6098bdfd9, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.33271226
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7006881832838147248, guid: 2814322b2bc84bb4e9914ae6098bdfd9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -200,28 +188,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2814322b2bc84bb4e9914ae6098bdfd9, type: 3}
---- !u!1 &295909764 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7006881832838147148, guid: 2814322b2bc84bb4e9914ae6098bdfd9, type: 3}
-  m_PrefabInstance: {fileID: 57641892}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &295909765 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7006881832838147248, guid: 2814322b2bc84bb4e9914ae6098bdfd9, type: 3}
   m_PrefabInstance: {fileID: 57641892}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &295909766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 295909764}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62a5e15697988fb49b1c0d9c83220d81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &441392820
 GameObject:
   m_ObjectHideFlags: 0
@@ -435,6 +406,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6361398645765968256, guid: 19fb47e0ebac7794a9d9c24487d9ce37, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8230290723646649482, guid: 19fb47e0ebac7794a9d9c24487d9ce37, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -982,6 +957,10 @@ PrefabInstance:
     - target: {fileID: 2754104998034714194, guid: 2b3e12d46adef994aa8c579f2cd10118, type: 3}
       propertyPath: m_Name
       value: IceElementPowerup
+      objectReference: {fileID: 0}
+    - target: {fileID: 2754104998034714195, guid: 2b3e12d46adef994aa8c579f2cd10118, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2754104998034714220, guid: 2b3e12d46adef994aa8c579f2cd10118, type: 3}
       propertyPath: m_RootOrder
