@@ -8,7 +8,9 @@ using ElementFactory;
 
 public class ElementPickup : MonoBehaviour
 {
-    private string elementType;
+    //holds the current element 
+    public string elementType;
+
     private bool canPickup = false;
     private float pickUpTimer = 100.0f;
     private float duration;
@@ -16,20 +18,23 @@ public class ElementPickup : MonoBehaviour
     private string pickUpButton;
     private PlayerWeaponController playerWC;
     private Vector3 currentPos;
+    private GameObject interactText;
 
-    // Retrieves the player script of weapon controller to change variables and call its UI update function
     AbilityFactory myFactory = new AbilityFactory(); //create a new abilit/Element Factory
 
-    void Start()
+     void Start()
     {
         pickUpButton = "pickUp" + this.GetComponent<PlayerMovementController>()._playerNum;
-        playerWC = this.GetComponent<PlayerWeaponController>();    }
+        playerWC = this.GetComponent<PlayerWeaponController>();    
+        currentPos = this.transform.position;
+        }
 
     void Update()
     {
-        float distance = Vector3.Distance(currentPos, this.transform.position);
-        if (distance < 10)
+        float distance = Vector3.Distance(this.transform.position, currentPos);
+        if (distance <= 6 && canPickup)
         {
+            Debug.Log(distance);
             duration = pickUpTimer;
         }
         if (canPickup && Input.GetButtonDown(pickUpButton))
@@ -53,10 +58,11 @@ public class ElementPickup : MonoBehaviour
         {
             duration -= 1;
         }
-        if (duration <= 0)
+        if (duration <= 0 && canPickup)
         {
             canPickup = false;
             duration = 0;
+            interactText.active = false;
         }
     }
 
@@ -64,6 +70,8 @@ public class ElementPickup : MonoBehaviour
     {
         if (collision.gameObject.tag == "Powerup" && !canPickup) //If colliding with any tag with Player
         {
+            interactText = collision.gameObject.transform.GetChild(0).gameObject;
+            interactText.active = true; 
             Vector3 currentPos = this.transform.position;
             elementType = collision.gameObject.GetComponent<ElementTyping>().elementType;
             Debug.Log(elementType);

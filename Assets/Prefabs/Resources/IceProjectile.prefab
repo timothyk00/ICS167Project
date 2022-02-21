@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4278984527813368929}
   - component: {fileID: 8882691169189039081}
   - component: {fileID: 7614229144249245303}
+  - component: {fileID: 6248906988803805354}
   m_Layer: 0
   m_Name: IceProjectile
   m_TagString: projectile
@@ -126,3 +127,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   freeze: 1
+--- !u!114 &6248906988803805354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5391678442148900032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efd08351cb39d474ba30e5839a81644f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  elementType: ice

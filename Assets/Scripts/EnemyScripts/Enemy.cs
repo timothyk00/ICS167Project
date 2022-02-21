@@ -146,7 +146,7 @@ public class Enemy : MonoBehaviour
     // Take Damage
     void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "projectile" || collision.gameObject.tag == "bolt")
+        if(collision.gameObject.tag == "projectile" || collision.gameObject.tag == "bolt" || collision.gameObject.tag == "wave")
         {
             _health-=10;
             _healthSlider.value = _health;

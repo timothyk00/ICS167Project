@@ -24,13 +24,4 @@ public class Fireball : MonoBehaviour
       }
 
     }
-    void OnCollisionEnter(Collision other)
-    {   //must only collide with objects with these tags.
-        if (other.gameObject.tag == "projectile")
-        {
-            //Destroy(gameObject);
-        }
-
-
-    }
 }

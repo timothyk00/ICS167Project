@@ -12,6 +12,7 @@ TagManager:
   - Goal
   - bolt
   - wave
+  - wall
   layers:
   - Default
   - TransparentFX
