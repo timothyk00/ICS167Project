@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 //Cleon Doan Timothy Kwon
 
@@ -10,6 +11,7 @@ public class SceneSwitch : MonoBehaviour
 {
     private bool _paused = false;
     public Canvas _escapeMenu = null;
+    public GameObject objectiveC;
 
     public void Update()
     {
@@ -19,6 +21,15 @@ public class SceneSwitch : MonoBehaviour
                 ToggleEscMenu(false);
             else
                 ToggleEscMenu(true);
+        }
+        GameObject[] allEnemies = GameObject.FindGameObjectsWithTag("Enemy");
+        if (allEnemies.Length== 0)
+        {
+        objectiveC.GetComponent<TMP_Text>().text = "Current Objective:\n Reach the green checkpoint\n to the north!";
+        }
+        else
+        {
+        objectiveC.GetComponent<TMP_Text>().text = "Current Objective:\n Defeat all the enemies!\n Enemies Remaining: "+(allEnemies.Length);
         }
     }
 

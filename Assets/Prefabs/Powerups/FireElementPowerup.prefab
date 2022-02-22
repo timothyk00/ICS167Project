@@ -292,7 +292,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Pick-up Fire?
+  m_text: 'Pick-up Fire? [Z/M]
 
 '
   m_isRightToLeft: 0
