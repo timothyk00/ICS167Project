@@ -37,7 +37,6 @@ public class SceneSwitch : MonoBehaviour
 
     public void EndScene() //Loads ending scene when function called
     {
-        ToggleEscMenu(false);
         SceneManager.LoadScene("Victory");
     }
     public void StartScene() //Loads start scene when function called
