@@ -13,10 +13,10 @@ public class Enemy : MonoBehaviour
     private GameObject _player;   
     private PlayerMovementController _playerMove;
 
-    public int _health = 15;
-    public int _attack = 10;
+    protected int _health = 15;
+    protected int _attack = 10;
 
-    public Slider _healthSlider;
+    protected Slider _healthSlider;
     
     void Start()
     {
