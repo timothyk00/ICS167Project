@@ -39,7 +39,7 @@ namespace ElementFactory
 		public override void useAbility(Vector3 playerPosition,Vector3 playerForward)
 		{
 		GameObject electricBolt = GameObject.Instantiate(Resources.Load("ElectricBolt")) as GameObject;
-		electricBolt.transform.position = playerPosition+(playerForward*7f);
+		electricBolt.transform.position = playerPosition+(playerForward*6f);
 		electricBolt.transform.forward = playerForward;
 		}
 	}
