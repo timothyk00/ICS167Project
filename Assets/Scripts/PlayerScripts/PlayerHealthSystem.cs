@@ -28,7 +28,7 @@ public class PlayerHealthSystem : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             Debug.Log("collided with enemy");
-            _health -= collision.gameObject.GetComponent<Enemy>;   // change with enemy damage
+            _health -= 10;   // change with enemy damage
             _healthSlider.value = _health;
 
         }
