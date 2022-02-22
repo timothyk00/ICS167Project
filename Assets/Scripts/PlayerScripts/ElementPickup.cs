@@ -62,7 +62,7 @@ public class ElementPickup : MonoBehaviour
         {
             canPickup = false;
             duration = 0;
-            interactText.active = false;
+            interactText.SetActive(false);
         }
     }
 
@@ -71,7 +71,7 @@ public class ElementPickup : MonoBehaviour
         if (collision.gameObject.tag == "Powerup" && !canPickup) //If colliding with any tag with Player
         {
             interactText = collision.gameObject.transform.GetChild(0).gameObject;
-            interactText.active = true; 
+            interactText.SetActive(true); 
             Vector3 currentPos = this.transform.position;
             elementType = collision.gameObject.GetComponent<ElementTyping>().elementType;
             Debug.Log(elementType);

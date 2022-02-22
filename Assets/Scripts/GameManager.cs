@@ -27,6 +27,11 @@ public sealed class GameManager
         return _players;
     }
 
+    public int GetNumCameras()
+    {
+        return _singlePlayer ? 1 : 2;   //if single player, return one, return 2 if multi
+    }
+
     public bool IsSinglePlayer()
     {
         return _singlePlayer;

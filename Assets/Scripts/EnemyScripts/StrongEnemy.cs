@@ -6,10 +6,10 @@ using UnityEngine.AI;
 
 public class StrongEnemy : Enemy
 {
-    private int _health = 10;
-    private int _attack = 20;
     void Start()
     {
+        _health = 10;
+        _attack = 20;
         _enemy = this.GetComponent<NavMeshAgent>();
         _enemy.speed = 3f;
         _enemy.acceleration = 6f;

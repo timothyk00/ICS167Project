@@ -389,7 +389,6 @@ GameObject:
   - component: {fileID: 153382599334231805}
   - component: {fileID: 153382599334231806}
   - component: {fileID: 153382599334231803}
-  - component: {fileID: 153382599334231802}
   - component: {fileID: -3228108781320341726}
   m_Layer: 0
   m_Name: Basic Enemy
@@ -509,29 +508,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ca76bbdfc7eb364bbbcdcd7a0505e6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemy: {fileID: 0}
-  _player: {fileID: 0}
-  _enemyDistanceRun: 4
-  _health: 20
-  _attack: 10
-  _healthSlider: {fileID: 1266102273}
---- !u!114 &153382599334231802
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 153382599334231777}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4c277ef1dbe1d44c869ca0a791e47c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _enemy: {fileID: 0}
-  _player: {fileID: 0}
-  _enemyDistanceRun: 4
-  _distanceMove: 5
-  _speed: 1
 --- !u!54 &-3228108781320341726
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -544,7 +520,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0

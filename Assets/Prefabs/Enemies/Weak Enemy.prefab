@@ -102,9 +102,8 @@ GameObject:
   - component: {fileID: 1461430686202753214}
   - component: {fileID: 1461430686202753215}
   - component: {fileID: 1461430686202753212}
-  - component: {fileID: 1461430686202753209}
-  - component: {fileID: 1461430686202753208}
   - component: {fileID: -1666762415430739253}
+  - component: {fileID: 1032487179}
   m_Layer: 0
   m_Name: Weak Enemy
   m_TagString: Enemy
@@ -168,7 +167,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7446f196a06ae7149b2633abf0b83cca, type: 2}
+  - {fileID: 2100000, guid: abf5506cdc1bcb54d837a3934e9cb5c3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -211,41 +210,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1461430686202753187}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1461430686202753209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1461430686202753187}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ca76bbdfc7eb364bbbcdcd7a0505e6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _enemy: {fileID: 0}
-  _player: {fileID: 0}
-  _enemyDistanceRun: 4
-  _health: 10
-  _attack: 5
-  _healthSlider: {fileID: 4229064603420286233}
---- !u!114 &1461430686202753208
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1461430686202753187}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4c277ef1dbe1d44c869ca0a791e47c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _enemy: {fileID: 0}
-  _player: {fileID: 0}
-  _enemyDistanceRun: 4
-  _distanceMove: 5
-  _speed: 1
 --- !u!54 &-1666762415430739253
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -262,6 +226,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1032487179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1461430686202753187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee5e922745d9f594d8d5084f59ca16dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2361107373882937616
 GameObject:
   m_ObjectHideFlags: 0

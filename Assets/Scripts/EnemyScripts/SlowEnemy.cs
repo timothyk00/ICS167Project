@@ -6,11 +6,11 @@ using UnityEngine.AI;
 
 public class SlowEnemy : Enemy
 {
-    private int _health = 30;
-    private int _attack = 20;
 
     void Start()
     {
+        _health = 30;
+        _attack = 20;
         _enemy = this.GetComponent<NavMeshAgent>();
         _enemy.speed = 2.5f;
         _enemy.acceleration = 8f;

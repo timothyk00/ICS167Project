@@ -20,9 +20,7 @@ public class PlayerHealthSystem : MonoBehaviour
     void Update()
     {
         if (_health == 0)
-        {
-        gameObject.SetActive(false);
-        }
+            gameObject.SetActive(false);
     }
 
     public void OnCollisionEnter(Collision collision)
@@ -30,7 +28,7 @@ public class PlayerHealthSystem : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             Debug.Log("collided with enemy");
-            _health -= 10;   // change with enemy damage
+            _health -= collision.gameObject.GetComponent<Enemy>;   // change with enemy damage
             _healthSlider.value = _health;
 
         }
