@@ -16,12 +16,13 @@ public class Enemy : MonoBehaviour
     public int _health = 15;
     public int _attack = 10;
 
-    private Slider _healthSlider;
+    public Slider _healthSlider;
     
     void Start()
     {
         _enemy = this.GetComponent<NavMeshAgent>();
-        //_healthSlider.maxValue = _health;
+        _healthSlider = this.GetComponentInChildren<Slider>();
+        _healthSlider.maxValue = _health;
     }
 
     // Wander if Player out of range
