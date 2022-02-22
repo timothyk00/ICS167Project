@@ -42,4 +42,9 @@ public sealed class GameManager
         _singlePlayer = false;
     }
 
+    public void SwapToSingle()
+    {
+        _singlePlayer = true;
+    }
+
 }

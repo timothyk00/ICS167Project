@@ -1,15 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 //Cleon Doan Timothy Kwon
 
 public class SceneSwitch : MonoBehaviour
 {
+    private bool _paused = false;
+    public Canvas _escapeMenu = null;
+
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) && _escapeMenu != null)
+        {
+            if (_paused) // if menu already enabled
+                ToggleEscMenu(false);
+            else
+                ToggleEscMenu(true);
+        }
+    }
+
     // Start is called before the first frame update
     public void Scene1Single() //Loads level1 when function called
     {
+        GameManager.GManager.SwapToSingle();
         SceneManager.LoadScene("Level 1"); //change to level1
     }
 
@@ -19,17 +35,26 @@ public class SceneSwitch : MonoBehaviour
         SceneManager.LoadScene("Level 1"); 
     }
 
-    public void endScene() //Loads ending scene when function called
+    public void EndScene() //Loads ending scene when function called
     {
+        ToggleEscMenu(false);
         SceneManager.LoadScene("Victory");
     }
-    public void startScene() //Loads start scene when function called
+    public void StartScene() //Loads start scene when function called
     {
+        ToggleEscMenu(false);
         SceneManager.LoadScene("StartScreen");
     }
 
-    public void quitGame()
+    public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void ToggleEscMenu(bool enabled)
+    {
+        Time.timeScale = enabled ? 0 : 1;
+        _escapeMenu.enabled = enabled;
+        _paused = enabled;
     }
 }
