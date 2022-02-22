@@ -6,10 +6,23 @@
  ========================================================
                         Controls
  ========================================================
- Keyboard:
- WASD                       -Move
- E                          -Switch Between Weapons
- Space                      -Use Ability
+ Keyboard Controls
+ 
+ Esc                                    -Pause
+
+ Player 1:
+ WASD                                   -Move
+ E                                      -Switch Weapons
+ Z                                      -Pickup Ability
+ Spacebar                               -Use Ability
+
+
+ Player 2:
+ Arrows Keys (Up, Down, Left, Right)    -Move
+ Right Ctrl                             -Switch Between Weapons
+ M                                      -Pickup Ability
+ Enter                                  -Use Ability
+ 
 
  ========================================================
                         GamePlay
