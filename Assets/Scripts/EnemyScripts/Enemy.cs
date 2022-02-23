@@ -5,19 +5,26 @@ using UnityEngine.UI;
 using UnityEngine.AI;
 
 
-//Kevin Luu + Timothy Kwon
-//NavMesh Bot Tutorial
+// Kevin Luu + Timothy Kwon
+// Used code from NavMesh Bot Hide & Seek Tutorial
 public class Enemy : MonoBehaviour
 {
     protected NavMeshAgent _enemy;
-    private GameObject _player;   
-    private PlayerMovementController _playerMove;
-
-    protected int _health = 15;
-    protected int _attack = 10;
+    protected GameObject _player;
+    protected  PlayerMovementController _playerMove;
 
     protected Slider _healthSlider;
-    
+
+    protected int _health;
+    protected int _attack;
+
+
+    public Enemy()
+    {
+        _health = 15;
+        _attack = 10;
+    }
+
     void Start()
     {
         _player = GetClosestPlayer();
@@ -26,8 +33,7 @@ public class Enemy : MonoBehaviour
         _healthSlider.maxValue = _health;
     }
 
-    // Wander if Player out of range
-    // Pursue if Player in range
+    // Finite State Machine
     void Update()
     {
         _player = GetClosestPlayer();
@@ -47,7 +53,7 @@ public class Enemy : MonoBehaviour
         
     }
 
-    GameObject GetClosestPlayer()
+    protected virtual GameObject GetClosestPlayer()
     {
         GameObject[] players = GameManager.GManager.GetPlayers();
 
@@ -75,13 +81,9 @@ public class Enemy : MonoBehaviour
     // Chase after a target by predicted where it will be in the future
     void Pursue()
     {
-        // The vector from the enemy to the player
         Vector3 targetDir = _player.transform.position - this.transform.position;
 
-        // The angle between the forward direction of the enemy and the forward direction of the player
         float relativeHeading = Vector3.Angle(this.transform.forward, this.transform.TransformVector(_player.transform.forward));
-
-        // The angle between the forward direction of the enemy and the position of the player
         float toTarget = Vector3.Angle(this.transform.forward, this.transform.TransformVector(targetDir));
 
         // If the enemy behind and heading in the same direction or the player has stopped then just seek.
@@ -98,38 +100,53 @@ public class Enemy : MonoBehaviour
 
     // Wanders around the map
     Vector3 wanderTarget = Vector3.zero;
-    void Wander()
+    protected virtual void Wander()
     {
         float wanderRadius = 10;
         float wanderDistance = 10;
         float wanderJitter = 1;
 
-        // Determine a location on a circle 
-        wanderTarget += new Vector3(Random.Range(-1.0f, 1.0f) * wanderJitter,
-                                        0,
-                                        Random.Range(-1.0f, 1.0f) * wanderJitter);
+        wanderTarget += new Vector3(Random.Range(-1.0f, 1.0f) * wanderJitter, 0, Random.Range(-1.0f, 1.0f) * wanderJitter);
         wanderTarget.Normalize();
+        
         // Project the point out to the radius of the circle
         wanderTarget *= wanderRadius;
 
         // Move the circle out in front of the enemy to the wander distance
         Vector3 targetLocal = wanderTarget + new Vector3(0, 0, wanderDistance);
+        
         // Work out the world location of the point on the circle.
         Vector3 targetWorld = this.gameObject.transform.InverseTransformVector(targetLocal);
 
         Seek(targetWorld);
     }
 
+    // Enemy flees from the Player's current position.
+    void Flee(Vector3 location)
+    {
+        // 180 degrees from location.
+        Vector3 fleeVector = location - this.transform.position;
+        _enemy.SetDestination(this.transform.position - fleeVector);
+    }
+
+    // Predicts the future location of the Player and travels away from it.
+    protected virtual void Evade()
+    {
+        Vector3 targetDir = _player.transform.position - this.transform.position;
+        float lookAhead = targetDir.magnitude / (_enemy.speed + _playerMove._moveSpeed);
+
+        Flee(_player.transform.position + _player.transform.forward * lookAhead);
+    }
+
     // Can the enemy see the Player from its current location
     bool CanSeeTarget()
     {
         RaycastHit raycastInfo;
-        // Calculate a ray to the player from the enemy
         Vector3 rayToTarget = _player.transform.position - this.transform.position;
+
         // Perform a raycast to determine if there's anything between the enemy and the player
         if (Physics.Raycast(this.transform.position, rayToTarget, out raycastInfo))
         {
-            // Ray will hit the player if no other colliders in the way
             if (raycastInfo.transform.gameObject.tag == "Player")
                 return true;
         }
@@ -138,12 +155,13 @@ public class Enemy : MonoBehaviour
 
 
     // Determine how far the player is from the enemy
-    bool PlayerInRange()
+    protected virtual bool PlayerInRange()
     {
         if (Vector3.Distance(this.transform.position, _player.transform.position) < 10)
             return true;
         return false;
     }
+
 
     // Take Damage
     void OnCollisionEnter(Collision collision)

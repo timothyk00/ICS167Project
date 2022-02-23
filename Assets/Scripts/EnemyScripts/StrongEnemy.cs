@@ -6,11 +6,13 @@ using UnityEngine.AI;
 
 public class StrongEnemy : Enemy
 {
+    StrongEnemy()
+    {
+        _attack = 20;
+    }
 
     void Start()
     {
-        _attack = 20;
-
         _healthSlider = this.GetComponentInChildren<Slider>();
         _healthSlider.maxValue = _health;
 
