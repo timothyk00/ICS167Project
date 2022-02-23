@@ -165,7 +165,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Pick-up Heal? [Z/M]
+  m_text: 'Pick-up Heal? [Q / ''/'']
 
 '
   m_isRightToLeft: 0

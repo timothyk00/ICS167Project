@@ -13,14 +13,14 @@
  Player 1:
  WASD                                   -Move
  E                                      -Switch Weapons
- Z                                      -Pickup Ability
+ Q                                      -Pickup Ability
  Spacebar                               -Use Ability
 
 
  Player 2:
  Arrows Keys (Up, Down, Left, Right)    -Move
  Right Ctrl                             -Switch Between Weapons
- M                                      -Pickup Ability
+ /                                      -Pickup Ability
  Enter                                  -Use Ability
  
 

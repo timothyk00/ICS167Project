@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Pick-up Earth? [Z/M]
+  m_text: 'Pick-up Earth? [Q / ''/'']
 
 '
   m_isRightToLeft: 0
