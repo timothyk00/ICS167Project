@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
     
     void Start()
     {
+        _player = GetClosestPlayer();
         _enemy = this.GetComponent<NavMeshAgent>();
         _healthSlider = this.GetComponentInChildren<Slider>();
         _healthSlider.maxValue = _health;

@@ -913,7 +913,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerNum: 1
   _moveSpeed: 5
-  _turnSpeed: 20
+  _turnSpeed: 15
 --- !u!114 &7006881832838147252
 MonoBehaviour:
   m_ObjectHideFlags: 0
