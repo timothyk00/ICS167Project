@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Cleon Doan
 public class wallType : MonoBehaviour
 {
   private string elementType;
