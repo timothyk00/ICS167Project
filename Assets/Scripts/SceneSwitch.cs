@@ -11,7 +11,7 @@ public class SceneSwitch : MonoBehaviour
 {
     private bool _paused = false;
     public Canvas _escapeMenu = null;
-    public GameObject objectiveC;
+    public GameObject objectiveC = null;
 
     public void Update()
     {
@@ -22,15 +22,17 @@ public class SceneSwitch : MonoBehaviour
             else
                 ToggleEscMenu(true);
         }
+
         GameObject[] allEnemies = GameObject.FindGameObjectsWithTag("Enemy");
-        if (allEnemies.Length== 0)
+
+        if (objectiveC != null)
         {
-        objectiveC.GetComponent<TMP_Text>().text = "Current Objective:\n Reach the green checkpoint\n to the north!";
+            if (allEnemies.Length == 0)
+                objectiveC.GetComponent<TMP_Text>().text = "Current Objective:\n Reach the green checkpoint\n to the north!";
+            else
+                objectiveC.GetComponent<TMP_Text>().text = "Current Objective:\n Defeat all the enemies!\n Enemies Remaining: " + (allEnemies.Length);
         }
-        else
-        {
-        objectiveC.GetComponent<TMP_Text>().text = "Current Objective:\n Defeat all the enemies!\n Enemies Remaining: "+(allEnemies.Length);
-        }
+        
     }
 
     // Start is called before the first frame update
@@ -52,7 +54,8 @@ public class SceneSwitch : MonoBehaviour
     }
     public void StartScene() //Loads start scene when function called
     {
-        ToggleEscMenu(false);
+        if(_escapeMenu != null)
+            ToggleEscMenu(false);
         SceneManager.LoadScene("StartScreen");
     }
 

@@ -202,6 +202,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a21624a8bcaf94f49a93af018eeb5d9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _escapeMenu: {fileID: 0}
+  objectiveC: {fileID: 0}
 --- !u!1 &747520809
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,7 +350,7 @@ GameObject:
   - component: {fileID: 864372271}
   - component: {fileID: 864372270}
   m_Layer: 5
-  m_Name: Play Button - Multiplayer\
+  m_Name: Play Button - Multiplayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
