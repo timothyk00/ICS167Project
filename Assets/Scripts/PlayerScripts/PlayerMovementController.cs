@@ -38,7 +38,7 @@ public class PlayerMovementController : MonoBehaviour
         _vertInputValue = Input.GetAxis(_vertAxisName);
 
         _rb.velocity = transform.forward * _horiInputValue * _moveSpeed * 100f * Time.fixedDeltaTime;
-        transform.Rotate((transform.up * _vertInputValue) * _turnSpeed * Time.fixedDeltaTime);
+        transform.Rotate((transform.up * _vertInputValue) * _turnSpeed * Time.deltaTime);
     }
 }
 

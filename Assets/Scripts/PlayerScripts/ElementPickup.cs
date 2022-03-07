@@ -39,15 +39,15 @@ public class ElementPickup : MonoBehaviour
         }
         if (canPickup && Input.GetButtonDown(pickUpButton))
         {
-            if (playerWC.weapons.Count == 2)
+            if (playerWC._weapons.Count == 2)
             {
-                playerWC.weapons = new List<Ability>() { playerWC.weapons[0], myFactory.GetAbility(elementType) }; //Updates the players list of weaponries with the given ability from the factory.
+                playerWC._weapons = new List<Ability>() { playerWC._weapons[0], myFactory.GetAbility(elementType) }; //Updates the players list of weaponries with the given ability from the factory.
                 playerWC.UpdateWeapons(); //Updates the UI
             }
             else
             {
-                if (playerWC.weapons.IndexOf(myFactory.GetAbility(elementType)) == -1)
-                    playerWC.weapons.Add(myFactory.GetAbility(elementType));
+                if (playerWC._weapons.IndexOf(myFactory.GetAbility(elementType)) == -1)
+                    playerWC._weapons.Add(myFactory.GetAbility(elementType));
                 playerWC.UpdateWeapons();
             }
             Destroy(powerUp);

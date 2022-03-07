@@ -59,6 +59,11 @@ public class SceneSwitch : MonoBehaviour
         SceneManager.LoadScene("StartScreen");
     }
 
+    public void RestartScene()
+    {
+        SceneManager.LoadScene("Level 1");
+    }
+
     public void QuitGame()
     {
         Application.Quit();

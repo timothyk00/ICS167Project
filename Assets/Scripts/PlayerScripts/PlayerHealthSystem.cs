@@ -10,17 +10,34 @@ public class PlayerHealthSystem : MonoBehaviour
     public int _health = 100;
     public Slider _healthSlider;
 
+    [SerializeField] private Canvas _deathCanvas;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        _deathCanvas.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_health == 0)
-            gameObject.SetActive(false);
+        if (_health <= 0)
+        {
+            if (GameManager.GManager.IsSinglePlayer())
+                gameObject.SetActive(false);
+            else
+                StartCoroutine(DeathRoutine());
+        }
+    }
+
+    private IEnumerator DeathRoutine()
+    {
+        _deathCanvas.enabled = true;
+
+        if (GameManager.GManager.GetPlayers().Length > 1)
+            yield return new WaitForSeconds(0.25f);
+
+        gameObject.SetActive(false);
     }
 
     public void OnCollisionEnter(Collision collision)
