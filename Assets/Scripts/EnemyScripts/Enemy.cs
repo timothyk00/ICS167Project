@@ -18,6 +18,14 @@ public class Enemy : MonoBehaviour
     protected int _health;
     protected int _attack;
 
+    private enum ENEMY_STATE
+    {
+        Wander,
+        Pursue,
+        Attack
+    }
+
+    private ENEMY_STATE _enemyState;
 
     public Enemy()
     {
@@ -36,6 +44,7 @@ public class Enemy : MonoBehaviour
     // Finite State Machine
     void Update()
     {
+        /***
         _player = GetClosestPlayer();
         if (_player)
         {
@@ -50,7 +59,45 @@ public class Enemy : MonoBehaviour
                 Pursue();
             }
         }
-        
+        ***/
+        _player = GetClosestPlayer();
+        if (_player)
+        {
+            _playerMove = _player.GetComponent<PlayerMovementController>();
+            switch(_enemyState)
+            {
+                case ENEMY_STATE.Wander:
+                    if (!CanSeeTarget())
+                    {
+                        Wander();
+                    }
+                    else if (CanSeeTarget())
+                    {
+                        _enemyState = ENEMY_STATE.Pursue;
+                    }
+                    break;
+
+                case ENEMY_STATE.Pursue:
+                    Pursue();
+                    if (!CanSeeTarget())
+                    {
+                        _enemyState = ENEMY_STATE.Wander;
+                    }
+                    if (PlayerInRange())
+                    {
+                        _enemyState = ENEMY_STATE.Attack;
+                    }
+                    break;
+
+                case ENEMY_STATE.Attack:
+                    Attack();
+                    if (!PlayerInRange() || !CanSeeTarget())
+                    {
+                        _enemyState = ENEMY_STATE.Wander;
+                    }
+                    break;
+            }
+        }
     }
 
     protected virtual GameObject GetClosestPlayer()
@@ -129,6 +176,12 @@ public class Enemy : MonoBehaviour
         _enemy.SetDestination(this.transform.position - fleeVector);
     }
 
+    void Attack()
+    {
+
+    }
+
+
     // Predicts the future location of the Player and travels away from it.
     protected virtual void Evade()
     {
@@ -147,7 +200,7 @@ public class Enemy : MonoBehaviour
         // Perform a raycast to determine if there's anything between the enemy and the player
         if (Physics.Raycast(this.transform.position, rayToTarget, out raycastInfo))
         {
-            if (raycastInfo.transform.gameObject.tag == "Player")
+            if (raycastInfo.transform.gameObject.tag == "Player" && Vector3.Distance(this.transform.position, _player.transform.position) < 10)
                 return true;
         }
         return false;
@@ -157,7 +210,7 @@ public class Enemy : MonoBehaviour
     // Determine how far the player is from the enemy
     protected virtual bool PlayerInRange()
     {
-        if (Vector3.Distance(this.transform.position, _player.transform.position) < 10)
+        if (Vector3.Distance(this.transform.position, _player.transform.position) < 5)
             return true;
         return false;
     }
