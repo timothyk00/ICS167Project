@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
 {
     protected NavMeshAgent _enemy;
     protected GameObject _player;
-    protected  PlayerMovementController _playerMove;
+    protected PlayerMovementController _playerMove;
 
     protected Slider _healthSlider;
 
