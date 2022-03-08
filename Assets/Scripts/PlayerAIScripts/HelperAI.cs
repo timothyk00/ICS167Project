@@ -6,9 +6,9 @@ using UnityEngine.AI;
 using ElementFactory;
 
 // Kevin Luu
-public class PlayerAI : MonoBehaviour
+public class HelperAI : MonoBehaviour
 {
-    private NavMeshAgent _playerAI;
+    private NavMeshAgent _helperAI;
     private GameObject _player;
 
     private int _health; // Not referenced yet
@@ -48,7 +48,8 @@ public class PlayerAI : MonoBehaviour
         switch(_playerState)
         {
             case PLAYER_STATE.Follow:
-                Follow();
+                if (_player != null)
+                    Follow();
                 if (CanSeeEnemy())
                 {
                     _playerState = PLAYER_STATE.Attack;
@@ -68,7 +69,8 @@ public class PlayerAI : MonoBehaviour
     // Follows Player
     void Follow()
     {
-        _playerAI.SetDestination(_player.transform.position);
+        if (_player != null)
+            _helperAI.SetDestination(_player.transform.position);
     }
 
     private GameObject[] GetEnemies()
@@ -116,7 +118,7 @@ public class PlayerAI : MonoBehaviour
 
     private void LookAtClosestEnemy()
     {
-        _playerAI.transform.LookAt(ClosestEnemy().transform.position);
+        _helperAI.transform.LookAt(ClosestEnemy().transform.position);
     }
 
     // If enemy is in range, AI attacks using element
