@@ -27,7 +27,6 @@ public class PlayerAI : MonoBehaviour
     private enum PLAYER_STATE
     {
         Follow,
-        Look,
         Attack,
     }
 
@@ -123,6 +122,7 @@ public class PlayerAI : MonoBehaviour
     // If enemy is in range, AI attacks using element
     void Attack()
     {
+        LookAtClosestEnemy();
         if (!_reloading)
         {
             _AIWeapons[0].useAbility(this.transform.position,this.transform.forward);
