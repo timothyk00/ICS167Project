@@ -18,6 +18,8 @@ public class PlayerWeaponController : MonoBehaviour
     [SerializeField] private TMP_Dropdown _elementDrop;
     [SerializeField] private TextMeshProUGUI _descriptionText;
 
+    private AbilityFactory _factory = new AbilityFactory();
+
     private Dictionary<string, string> _descriptions = new Dictionary<string, string>()
     {
         {"Earth", "Build an earth wall that blocks projectiles" },
@@ -97,7 +99,7 @@ public class PlayerWeaponController : MonoBehaviour
         _elementSelect.enabled = false;
         Time.timeScale = 1;
 
-        //_weapons.Add(myFactory.GetAbility(elementType));
+        _weapons.Add(_factory.GetAbility(_elementDrop.options[_elementDrop.value].text.ToLower()));
         UpdateWeapons();
     }
 }
