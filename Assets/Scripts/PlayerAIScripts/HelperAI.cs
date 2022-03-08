@@ -5,10 +5,10 @@ using UnityEngine.UI;
 using UnityEngine.AI;
 using ElementFactory;
 
-// Kevin Luu
+// Kevin Luu and Timothy Kwon
 public class HelperAI : MonoBehaviour
 {
-    private NavMeshAgent _helperAI;
+    public NavMeshAgent _helperAI;
     private GameObject _player;
 
     private int _health; // Not referenced yet
@@ -23,17 +23,19 @@ public class HelperAI : MonoBehaviour
 
     private bool _reloading = false;
 
-    // Player States
-    private enum PLAYER_STATE
+    // Helper States
+    private enum HELPER_STATE
     {
         Follow,
         Attack,
     }
 
-    private PLAYER_STATE _playerState;
+    private HELPER_STATE _helperState;
 
     void Start()
     {
+        // Set Navmesh to helperAI
+        _helperAI = this.GetComponent<NavMeshAgent>();
         // Find player to follow in 1 Player mode
         _player = GameManager.GManager.GetPlayers()[0];
         // Find enemies
@@ -45,22 +47,21 @@ public class HelperAI : MonoBehaviour
     
     void Update()
     {
-        switch(_playerState)
+        switch(_helperState)
         {
-            case PLAYER_STATE.Follow:
-                if (_player != null)
-                    Follow();
-                if (CanSeeEnemy())
+            case HELPER_STATE.Follow:
+                Follow();
+                if (InRange("Enemy", 10))
                 {
-                    _playerState = PLAYER_STATE.Attack;
+                    _helperState = HELPER_STATE.Attack;
                 }
                 break;
 
-            case PLAYER_STATE.Attack:
+            case HELPER_STATE.Attack:
                 Attack();
-                if (!CanSeeEnemy())
+                if (!InRange("Player", 10))
                 {
-                    _playerState = PLAYER_STATE.Follow;
+                    _helperState = HELPER_STATE.Follow;
                 }
                 break;
         }
@@ -80,7 +81,7 @@ public class HelperAI : MonoBehaviour
     }
 
 
-    bool CanSeeEnemy()
+    bool InRange(string target, int range)
     {
         // Looks for Enemies in sight and within a certain distance
         RaycastHit raycastInfo;
@@ -90,13 +91,14 @@ public class HelperAI : MonoBehaviour
         if (Physics.Raycast(this.transform.position, rayToTarget, out raycastInfo))
         {
             //WRONG I NEED TO FIX TO FIND ALL ENEMIES
-            if (raycastInfo.transform.gameObject.tag == "Enemy" && Vector3.Distance(this.transform.position, ClosestEnemy().transform.position) < 10)
+            if (raycastInfo.transform.gameObject.tag == target && Vector3.Distance(this.transform.position, ClosestEnemy().transform.position) < range)
                 return true;
         }
         return false;
     }
 
-    // Loops to find the closest enemy to the playerAI
+
+    // Loops to find the closest enemy to the helperAI
     private GameObject ClosestEnemy()
     {
         GameObject closestEnemy = null;
