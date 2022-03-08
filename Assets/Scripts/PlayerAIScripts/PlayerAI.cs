@@ -4,10 +4,17 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AI;
 
+
+// Kevin Luu
 public class PlayerAI : MonoBehaviour
 {
+    private NavMeshAgent _playerAI;
     private GameObject _player;
 
+    private int _health;
+    private Slider _healthSlider;
+
+    // Player States
     private enum PLAYER_STATE
     {
         Follow,
@@ -18,7 +25,8 @@ public class PlayerAI : MonoBehaviour
 
     void Start()
     {
-        
+        // Find player to follow in 1 Player mode
+        _player = GameManager.GManager.GetPlayers()[0];
     }
 
     
@@ -27,10 +35,47 @@ public class PlayerAI : MonoBehaviour
         switch(_playerState)
         {
             case PLAYER_STATE.Follow:
+                Follow();
+                if (CanSeeEnemy())
+                {
+                    _playerState = PLAYER_STATE.Attack;
+                }
                 break;
 
             case PLAYER_STATE.Attack:
+                Attack();
+                if (!CanSeeEnemy())
+                {
+                    _playerState = PLAYER_STATE.Follow;
+                }
                 break;
         }
+    }
+
+    // Follows Player
+    void Follow()
+    {
+        _playerAI.SetDestination(_player.transform.position);
+    }
+
+    bool CanSeeEnemy()
+    {
+        // Looks for Enemies in sight and within a certain distance
+        RaycastHit raycastInfo;
+        Vector3 rayToTarget = _player.transform.position - this.transform.position;
+
+        // Perform a raycast to determine if there's anything between the AI and the enemies
+        if (Physics.Raycast(this.transform.position, rayToTarget, out raycastInfo))
+        {
+            if (raycastInfo.transform.gameObject.tag == "Enemy" && Vector3.Distance(this.transform.position, _player.transform.position) < 10)
+                return true;
+        }
+        return false;
+    }
+
+    // If enemy is in range, AI attacks using element
+    void Attack()
+    {
+        
     }
 }

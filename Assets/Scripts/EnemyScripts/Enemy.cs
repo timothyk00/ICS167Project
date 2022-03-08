@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour
     protected int _health;
     protected int _attack;
 
+    // Enemy States
     private enum ENEMY_STATE
     {
         Wander,
@@ -44,22 +45,6 @@ public class Enemy : MonoBehaviour
     // Finite State Machine
     void Update()
     {
-        /***
-        _player = GetClosestPlayer();
-        if (_player)
-        {
-            _playerMove = _player.GetComponent<PlayerMovementController>();
-
-            if (!PlayerInRange())
-            {
-                Wander();
-            }
-            else
-            {
-                Pursue();
-            }
-        }
-        ***/
         _player = GetClosestPlayer();
         if (_player)
         {
@@ -67,11 +52,11 @@ public class Enemy : MonoBehaviour
             switch(_enemyState)
             {
                 case ENEMY_STATE.Wander:
-                    if (!CanSeeTarget())
+                    if (!CanSeePlayer())
                     {
                         Wander();
                     }
-                    else if (CanSeeTarget())
+                    else if (CanSeePlayer())
                     {
                         _enemyState = ENEMY_STATE.Pursue;
                     }
@@ -79,7 +64,7 @@ public class Enemy : MonoBehaviour
 
                 case ENEMY_STATE.Pursue:
                     Pursue();
-                    if (!CanSeeTarget())
+                    if (!CanSeePlayer())
                     {
                         _enemyState = ENEMY_STATE.Wander;
                     }
@@ -91,7 +76,7 @@ public class Enemy : MonoBehaviour
 
                 case ENEMY_STATE.Attack:
                     Attack();
-                    if (!PlayerInRange() || !CanSeeTarget())
+                    if (!PlayerInRange() || !CanSeePlayer())
                     {
                         _enemyState = ENEMY_STATE.Wander;
                     }
@@ -192,7 +177,7 @@ public class Enemy : MonoBehaviour
     }
 
     // Can the enemy see the Player from its current location
-    bool CanSeeTarget()
+    bool CanSeePlayer()
     {
         RaycastHit raycastInfo;
         Vector3 rayToTarget = _player.transform.position - this.transform.position;
