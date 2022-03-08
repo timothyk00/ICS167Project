@@ -14,11 +14,14 @@ public class PlayerAI : MonoBehaviour
     private int _health;
     private Slider _healthSlider;
 
+    private GameObject[] _enemies;
+
     // Player States
     private enum PLAYER_STATE
     {
         Follow,
-        Attack
+        Attack,
+        Evade,
     }
 
     private PLAYER_STATE _playerState;
@@ -27,6 +30,8 @@ public class PlayerAI : MonoBehaviour
     {
         // Find player to follow in 1 Player mode
         _player = GameManager.GManager.GetPlayers()[0];
+        // Find enemies
+        _enemies = GetEnemies();
     }
 
     
@@ -58,6 +63,13 @@ public class PlayerAI : MonoBehaviour
         _playerAI.SetDestination(_player.transform.position);
     }
 
+    private GameObject[] GetEnemies()
+    {
+        _enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        return _enemies;
+    }
+
+
     bool CanSeeEnemy()
     {
         // Looks for Enemies in sight and within a certain distance
@@ -67,6 +79,7 @@ public class PlayerAI : MonoBehaviour
         // Perform a raycast to determine if there's anything between the AI and the enemies
         if (Physics.Raycast(this.transform.position, rayToTarget, out raycastInfo))
         {
+            //WRONG I NEED TO FIX TO FIND ALL ENEMIES
             if (raycastInfo.transform.gameObject.tag == "Enemy" && Vector3.Distance(this.transform.position, _player.transform.position) < 10)
                 return true;
         }
