@@ -25,10 +25,13 @@
  
 
  ========================================================
-                        GamePlay
+                        Gameplay
  ========================================================
  The main objective is to reach the green area by avoiding obstacles and defeating
  enemies using elemental weapons picked from the ground. The player can hold up to
  two weapons at a time, a primary and a secondary. If the player picks up a third
- weapon, the secondary gets replaced.
+ weapon, the secondary gets replaced. 
+
+Single Player: A helper player AI will be spawned in to help
+Local Multiplayer: Two players will play at a time (with no helper AI)
  
