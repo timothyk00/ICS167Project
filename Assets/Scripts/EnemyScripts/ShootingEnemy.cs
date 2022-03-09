@@ -60,11 +60,7 @@ public class ShootingEnemy : Enemy
             case SHOOTENEMY_STATE.Attack:
             Attack();
             Debug.Log("Attacking");
-            _selfD -= 1;
-            if (_selfD == 0)
-            {
-                Destroy(this);
-            }
+            
             if (!CanSeePlayer())
             {
                 Debug.Log("Switch to Idle");
@@ -83,6 +79,12 @@ public class ShootingEnemy : Enemy
             _AIweapons[0].useAbility(this.transform.position,this.transform.forward);
             _reloading = true;
             StartCoroutine(Reload());
+
+            _selfD -= 1;
+            if (_selfD == 0)
+            {
+                Destroy(_enemy.gameObject);
+            }
         }
 
     }
