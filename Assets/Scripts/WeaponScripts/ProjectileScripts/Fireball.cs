@@ -5,7 +5,7 @@ using UnityEngine;
 //This script handles the fire element projectile behaviour.
 public class Fireball : MonoBehaviour
 {
-    private float fbSpeed = 0.2f;
+    private float fbSpeed = 2f;
     private float duration = 1.0f; 
     private float lifeTimer;
     public bool burn = true; //To later be used to add effects to enemies when they collide with this particle.

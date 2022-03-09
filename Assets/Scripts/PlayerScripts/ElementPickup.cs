@@ -32,7 +32,8 @@ public class ElementPickup : MonoBehaviour
     void Update()
     {
         float distance = Vector3.Distance(this.transform.position, currentPos);
-        if (distance <= 6 && canPickup)
+        Debug.Log(distance);
+        if (distance <= 5 && canPickup)
         {
             Debug.Log(distance);
             duration = pickUpTimer;
@@ -72,7 +73,7 @@ public class ElementPickup : MonoBehaviour
         {
             interactText = collision.gameObject.transform.GetChild(0).gameObject;
             interactText.SetActive(true); 
-            Vector3 currentPos = this.transform.position;
+            currentPos = collision.gameObject.transform.position;
             elementType = collision.gameObject.GetComponent<ElementTyping>().elementType;
             Debug.Log(elementType);
             canPickup = true;

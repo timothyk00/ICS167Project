@@ -22,10 +22,10 @@ public class PlayerWeaponController : MonoBehaviour
 
     private Dictionary<string, string> _descriptions = new Dictionary<string, string>()
     {
-        {"Earth", "Build an earth wall that blocks projectiles" },
-        {"Electric", "Shoot a long ray of electricity that damages enemies" },
-        {"Fire", "Shoot a short but wide burst of fire that damages enemies" },
-        {"Heal", "Heal 10 health" },
+        {"Earth", "Build an earth wall that blocks projectiles." },
+        {"Electric", "Shoot a powerful long ray of electricity. Electricity is strong but very volatile, be careful as it can hurt you!" },
+        {"Fire", "Shoot a short but wide burst of fire. Great if you are surrounded, but be careful as it can hurt you!" },
+        {"Heal", "Heal yourself for 10 health" },
         {"Ice", "Shoot an iceball that damages enemies" }
     };
 
