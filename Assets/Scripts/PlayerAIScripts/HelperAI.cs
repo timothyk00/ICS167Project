@@ -41,13 +41,15 @@ public class HelperAI : MonoBehaviour
         // Find enemies
         _enemies = GetEnemies();
         // Adds weapons to list
-        _AIWeapons.Add(myFactory.GetAbility("aielement"));
+        _AIWeapons.Add(myFactory.GetAbility("ice"));
     }
 
     
     void Update()
     {
+        _enemies = GetEnemies();
         switch(_helperState)
+
         {
             case HELPER_STATE.Follow:
                 Follow();
@@ -59,6 +61,7 @@ public class HelperAI : MonoBehaviour
 
             case HELPER_STATE.Attack:
                 Attack();
+                Debug.Log("attacking");
                 if (!InRange("Player", 10))
                 {
                     _helperState = HELPER_STATE.Follow;
@@ -91,8 +94,11 @@ public class HelperAI : MonoBehaviour
         if (Physics.Raycast(this.transform.position, rayToTarget, out raycastInfo))
         {
             //WRONG I NEED TO FIX TO FIND ALL ENEMIES
-            if (raycastInfo.transform.gameObject.tag == target && Vector3.Distance(this.transform.position, ClosestEnemy().transform.position) < range)
+            //raycastInfo.transform.gameObject.tag == target &&
+            if ( Vector3.Distance(this.transform.position, ClosestEnemy().transform.position) < range)
+            {
                 return true;
+                }
         }
         return false;
     }
@@ -101,6 +107,7 @@ public class HelperAI : MonoBehaviour
     // Loops to find the closest enemy to the helperAI
     private GameObject ClosestEnemy()
     {
+        
         GameObject closestEnemy = null;
         float minEnemyDistance = 10000f;
 
@@ -136,7 +143,7 @@ public class HelperAI : MonoBehaviour
     }
 
     private IEnumerator Reload(){
-          yield return new WaitForSeconds(1);   //or however long you want the reload time to be
+          yield return new WaitForSeconds(3);   //or however long you want the reload time to be
           _reloading = false;
     }
 }

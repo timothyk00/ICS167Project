@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: -1666762415430739253}
   - component: {fileID: 1032487179}
   m_Layer: 0
-  m_Name: Weak Enemy
+  m_Name: Shooting Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
