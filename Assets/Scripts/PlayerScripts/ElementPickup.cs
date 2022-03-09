@@ -32,7 +32,6 @@ public class ElementPickup : MonoBehaviour
     void Update()
     {
         float distance = Vector3.Distance(this.transform.position, currentPos);
-        Debug.Log(distance);
         if (distance <= 5 && canPickup)
         {
             Debug.Log(distance);
