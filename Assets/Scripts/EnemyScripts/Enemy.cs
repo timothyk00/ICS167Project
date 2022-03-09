@@ -19,14 +19,14 @@ public class Enemy : MonoBehaviour
     protected int _attack;
 
     // Enemy States
-    private enum ENEMY_STATE
+    protected enum ENEMY_STATE
     {
         Wander,
         Pursue,
         Attack
     }
 
-    private ENEMY_STATE _enemyState;
+    protected ENEMY_STATE _enemyState;
 
     public Enemy()
     {
@@ -177,7 +177,7 @@ public class Enemy : MonoBehaviour
     }
 
     // Can the enemy see the Player from its current location
-    bool CanSeePlayer()
+    protected virtual bool CanSeePlayer()
     {
         RaycastHit raycastInfo;
         Vector3 rayToTarget = _player.transform.position - this.transform.position;
