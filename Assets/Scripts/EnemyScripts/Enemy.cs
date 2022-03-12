@@ -161,6 +161,7 @@ public class Enemy : MonoBehaviour
         if (Physics.Raycast(this.transform.position, rayToTarget, out raycastInfo))
         {
             if (raycastInfo.transform.gameObject.tag == "Player" && Vector3.Distance(this.transform.position, _player.transform.position) < range)
+                Debug.Log("Can See");
                 return true;
         }
         return false;
