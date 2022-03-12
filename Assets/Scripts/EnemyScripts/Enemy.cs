@@ -52,11 +52,11 @@ public class Enemy : MonoBehaviour
             switch(_enemyState)
             {
                 case ENEMY_STATE.Wander:
-                    if (!CanSeePlayer())
+                    if (!CanSeePlayer(10))
                     {
                         Wander();
                     }
-                    else if (CanSeePlayer())
+                    else if (CanSeePlayer(10))
                     {
                         _enemyState = ENEMY_STATE.Pursue;
                     }
@@ -64,7 +64,7 @@ public class Enemy : MonoBehaviour
 
                 case ENEMY_STATE.Pursue:
                     Pursue();
-                    if (!CanSeePlayer())
+                    if (!CanSeePlayer(10))
                     {
                         _enemyState = ENEMY_STATE.Wander;
                     }
@@ -75,8 +75,7 @@ public class Enemy : MonoBehaviour
                     break;
 
                 case ENEMY_STATE.Attack:
-                    Attack();
-                    if (!PlayerInRange() || !CanSeePlayer())
+                    if (!PlayerInRange() || !CanSeePlayer(10))
                     {
                         _enemyState = ENEMY_STATE.Wander;
                     }
@@ -153,31 +152,8 @@ public class Enemy : MonoBehaviour
         Seek(targetWorld);
     }
 
-    // Enemy flees from the Player's current position.
-    void Flee(Vector3 location)
-    {
-        // 180 degrees from location.
-        Vector3 fleeVector = location - this.transform.position;
-        _enemy.SetDestination(this.transform.position - fleeVector);
-    }
-
-    void Attack()
-    {
-
-    }
-
-
-    // Predicts the future location of the Player and travels away from it.
-    protected virtual void Evade()
-    {
-        Vector3 targetDir = _player.transform.position - this.transform.position;
-        float lookAhead = targetDir.magnitude / (_enemy.speed + _playerMove._moveSpeed);
-
-        Flee(_player.transform.position + _player.transform.forward * lookAhead);
-    }
-
     // Can the enemy see the Player from its current location
-    protected virtual bool CanSeePlayer()
+    protected virtual bool CanSeePlayer(int range)
     {
         RaycastHit raycastInfo;
         Vector3 rayToTarget = _player.transform.position - this.transform.position;
@@ -185,7 +161,7 @@ public class Enemy : MonoBehaviour
         // Perform a raycast to determine if there's anything between the enemy and the player
         if (Physics.Raycast(this.transform.position, rayToTarget, out raycastInfo))
         {
-            if (raycastInfo.transform.gameObject.tag == "Player" && Vector3.Distance(this.transform.position, _player.transform.position) < 10)
+            if (raycastInfo.transform.gameObject.tag == "Player" && Vector3.Distance(this.transform.position, _player.transform.position) < range)
                 return true;
         }
         return false;

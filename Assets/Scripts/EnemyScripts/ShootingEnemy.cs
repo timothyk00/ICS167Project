@@ -16,10 +16,11 @@ public class ShootingEnemy : Enemy
 {
     //Self Destruct counter
     private int _selfD = 5; 
-    private List<Ability> _AIweapons = new List<Ability>();  //weapons inventory
-    private AbilityFactory _myFactory = new AbilityFactory(); //element factory 
+    protected List<Ability> _AIweapons = new List<Ability>();  //weapons inventory
+    protected AbilityFactory _myFactory = new AbilityFactory(); //element factory 
     
-    private bool _reloading = false;
+    protected bool _reloading = false;
+    protected bool _destructable = true;
 
     private enum SHOOTENEMY_STATE
     {
@@ -50,18 +51,15 @@ public class ShootingEnemy : Enemy
         switch(_shootEnemyState)
         {
             case SHOOTENEMY_STATE.Idle:
-            if (CanSeePlayer())
+            if (CanSeePlayer(20))
             {
-                Debug.Log("Switch to Attack");
                 _shootEnemyState = SHOOTENEMY_STATE.Attack;
             }
             break;
             
             case SHOOTENEMY_STATE.Attack:
-            Attack();
-            Debug.Log("Attacking");
-            
-            if (!CanSeePlayer())
+            ShootAttack();
+            if (!CanSeePlayer(20))
             {
                 Debug.Log("Switch to Idle");
                 _shootEnemyState = SHOOTENEMY_STATE.Idle;
@@ -70,8 +68,9 @@ public class ShootingEnemy : Enemy
         }
     }
 
-    void Attack()
+    protected virtual void ShootAttack()
     {
+        _enemy.velocity = Vector3.zero;
         _enemy.transform.LookAt(_player.transform.position);
         
         if (!_reloading)
@@ -81,16 +80,15 @@ public class ShootingEnemy : Enemy
             StartCoroutine(Reload());
 
             _selfD -= 1;
-            if (_selfD == 0)
+            if (_selfD == 0 && _destructable)
             {
                 Destroy(_enemy.gameObject);
             }
         }
-
     }
 
-    private IEnumerator Reload(){
-          yield return new WaitForSeconds(3);   //or however long you want the reload time to be
-          _reloading = false;
+    protected virtual IEnumerator Reload(){
+        yield return new WaitForSeconds(3);   //or however long you want the reload time to be
+        _reloading = false;
     }
 }

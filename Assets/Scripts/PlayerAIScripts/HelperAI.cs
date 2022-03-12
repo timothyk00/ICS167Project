@@ -53,7 +53,7 @@ public class HelperAI : MonoBehaviour
         {
             case HELPER_STATE.Follow:
                 Follow();
-                if (InRange("Enemy", 10) && InRange("Player", 5))
+                if (InRange("Enemy", 5) && InRange("Player", 5))
                 {
                     _helperState = HELPER_STATE.Attack;
                 }
