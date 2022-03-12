@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 4148071324842365687}
   - component: {fileID: 2482228431381960407}
   - component: {fileID: 7029136085697762795}
-  - component: {fileID: 1033194629}
   - component: {fileID: 8250304235672641448}
   - component: {fileID: 5010964775891165100}
+  - component: {fileID: 5514949058171001586}
   m_Layer: 0
   m_Name: EarthBlock
   m_TagString: block
@@ -98,18 +98,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1033194629
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3904189202498479807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e45a1e9be47ad5429afd212c149d03f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &8250304235672641448
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -139,3 +127,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   elementType: earth
+--- !u!114 &5514949058171001586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3904189202498479807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65cd918305474c8478a92065467b85eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

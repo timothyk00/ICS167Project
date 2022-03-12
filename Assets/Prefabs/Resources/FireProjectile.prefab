@@ -19276,12 +19276,12 @@ GameObject:
   - component: {fileID: 4113662309291540158}
   - component: {fileID: 4113776160274485632}
   - component: {fileID: 1506165946165343095}
-  - component: {fileID: 1270923684579844668}
   - component: {fileID: 2812904957774598074}
   - component: {fileID: 908076695529578870}
+  - component: {fileID: 199576147597215232}
   m_Layer: 0
   m_Name: FireProjectile
-  m_TagString: projectile
+  m_TagString: wave
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19323,7 +19323,7 @@ ParticleSystem:
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
-  useRigidbodyForVelocity: 1
+  useRigidbodyForVelocity: 0
   startDelay:
     serializedVersion: 2
     minMaxState: 0
@@ -24104,19 +24104,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 1
---- !u!114 &1270923684579844668
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4310886549846219014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a65a7f80fa47b6148a90692b73a080c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  burn: 1
 --- !u!114 &2812904957774598074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24144,3 +24131,15 @@ CapsuleCollider:
   m_Height: 0.15
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &199576147597215232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4310886549846219014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65cd918305474c8478a92065467b85eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

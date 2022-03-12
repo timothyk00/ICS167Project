@@ -40,7 +40,7 @@ namespace ElementFactory
 		{
 		GameObject electricBolt = GameObject.Instantiate(Resources.Load("ElectricBolt")) as GameObject;
 		electricBolt.transform.position = playerPosition+(playerForward*6f);
-		electricBolt.transform.forward = playerForward;
+		electricBolt.transform.forward = playerForward ;
 		}
 	}
 	public class IceElement: Ability

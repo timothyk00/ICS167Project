@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//Timothy Kwon
+//Timothy Kwon, Cleon Doan
 
 public class PlayerMovementController : MonoBehaviour
 {
@@ -16,10 +16,12 @@ public class PlayerMovementController : MonoBehaviour
     private float _vertInputValue = 0f;
 
     private Rigidbody _rb;
+    private Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
         _horiAxisName = "Vertical" + _playerNum;
         _vertAxisName = "Horizontal" + _playerNum;
 
@@ -39,6 +41,7 @@ public class PlayerMovementController : MonoBehaviour
 
         _rb.velocity = transform.forward * _horiInputValue * _moveSpeed * 100f * Time.fixedDeltaTime;
         transform.Rotate((transform.up * _vertInputValue) * _turnSpeed * Time.deltaTime);
+        animator.SetFloat("Speed", _rb.velocity.magnitude);
     }
 }
 

@@ -87,7 +87,6 @@ public class Enemy : MonoBehaviour
     protected virtual GameObject GetClosestPlayer()
     {
         GameObject[] players = GameManager.GManager.GetPlayers();
-
         if (players.Length == 1)
             return players[0];
         else if (players.Length == 2)

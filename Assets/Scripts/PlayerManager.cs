@@ -16,7 +16,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (GameManager.GManager.IsSinglePlayer())
         {
-            Instantiate(_playerPrefab, new Vector3(-40, .5f, 0), Quaternion.Euler(new Vector3(0, 90, 0)));
+            Instantiate(_playerPrefab, new Vector3(-40, 0, 0), Quaternion.Euler(new Vector3(0, 90, 0)));
             Instantiate(_helperPrefab, new Vector3(-40, 2, 3), Quaternion.Euler(new Vector3(0, 90, 0)));
         }
         else
