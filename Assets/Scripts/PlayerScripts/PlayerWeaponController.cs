@@ -10,6 +10,7 @@ using ElementFactory;
 public class PlayerWeaponController : MonoBehaviour
 {
     public List<Ability> _weapons = new List<Ability>(); // index 0 = primary, index 1 = secondary
+    public Animator attack_animator;
 
     [SerializeField] private TextMeshProUGUI _primText;
     [SerializeField] private TextMeshProUGUI _secText;
@@ -63,8 +64,15 @@ public class PlayerWeaponController : MonoBehaviour
     {
         if (_weapons.Count != 0)
         {
+            StartCoroutine("Attack_Animation");
             _weapons[0].useAbility(this.transform.position, this.transform.forward);
         }
+    }
+    private IEnumerator Attack_Animation()
+    {
+        attack_animator.SetBool("Attacking", true);
+        yield return new WaitForSeconds(0.01f);
+        attack_animator.SetBool("Attacking", false);
     }
 
     private void Swap()

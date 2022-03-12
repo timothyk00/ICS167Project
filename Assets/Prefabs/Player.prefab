@@ -4067,6 +4067,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efee812bc518d6a4b9d7fa850c534f25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attack_animator: {fileID: 7892364135500003659}
   _primText: {fileID: 8156803303971248707}
   _secText: {fileID: 7216860148107083969}
   _elementSelect: {fileID: 2547662758987189744}
