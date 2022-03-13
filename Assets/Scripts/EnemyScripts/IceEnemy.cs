@@ -7,8 +7,6 @@ using UnityEngine.AI;
 //Kevin Luu
 public class IceEnemy : ElementEnemy
 {
-    private int _reloadTime = 3;
-    
     public IceEnemy()
     {
         _health = 10;
@@ -16,6 +14,7 @@ public class IceEnemy : ElementEnemy
 
     void Start()
     {
+        _reloadTime = 3;
         _healthSlider = this.GetComponentInChildren<Slider>();
         _healthSlider.maxValue = _health;
 

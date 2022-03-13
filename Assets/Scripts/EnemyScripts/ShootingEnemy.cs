@@ -20,6 +20,7 @@ public class ShootingEnemy : Enemy
     protected AbilityFactory _myFactory = new AbilityFactory(); //element factory 
     
     protected bool _reloading = false;
+    protected int _reloadTime = 2;
     protected bool _destructable = true;
 
     private enum SHOOTENEMY_STATE
@@ -58,7 +59,7 @@ public class ShootingEnemy : Enemy
             break;
             
             case SHOOTENEMY_STATE.Attack:
-            ShootAttack();
+            ShootAttack(_reloadTime);
             if (!CanSeePlayer(40))
             {
                 _shootEnemyState = SHOOTENEMY_STATE.Idle;
@@ -67,7 +68,7 @@ public class ShootingEnemy : Enemy
         }
     }
 
-    protected virtual void ShootAttack()
+    protected virtual void ShootAttack(int reloadTime)
     {
         _enemy.velocity = Vector3.zero;
         _enemy.transform.LookAt(_player.transform.position);
@@ -76,7 +77,7 @@ public class ShootingEnemy : Enemy
         {
             _AIweapons[0].useAbility(this.transform.position,this.transform.forward);
             _reloading = true;
-            StartCoroutine(Reload());
+            StartCoroutine(Reload(reloadTime));
 
             _selfD -= 1;
             if (_selfD == 0 && _destructable)
@@ -86,8 +87,8 @@ public class ShootingEnemy : Enemy
         }
     }
 
-    protected virtual IEnumerator Reload(){
-        yield return new WaitForSeconds(3);   //or however long you want the reload time to be
+    protected virtual IEnumerator Reload(int reloadTime){
+        yield return new WaitForSeconds(reloadTime);   //or however long you want the reload time to be
         _reloading = false;
     }
 }

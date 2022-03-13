@@ -7,7 +7,6 @@ using UnityEngine.AI;
 //Kevin Luu
 public class FireEnemy : ElementEnemy
 {
-    private int _relaodTime = 3;
     public FireEnemy()
     {
         _health = 10;
@@ -15,6 +14,7 @@ public class FireEnemy : ElementEnemy
 
     void Start()
     {
+        _reloadTime = 3;
         _healthSlider = this.GetComponentInChildren<Slider>();
         _healthSlider.maxValue = _health;
 

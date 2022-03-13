@@ -7,7 +7,6 @@ using UnityEngine.AI;
 //Kevin Luu
 public class ElementEnemy : ShootingEnemy
 {
-    private int _relaodTime = 1;
     private enum ELEMENTENEMY_STATE
     {
         Wander,
@@ -29,7 +28,7 @@ public class ElementEnemy : ShootingEnemy
                 break;
             
             case ELEMENTENEMY_STATE.Attack:
-                ShootAttack();
+                ShootAttack(_reloadTime);
                 if (!CanSeePlayer(10))
                 {
                     _elementEnemyState = ELEMENTENEMY_STATE.Wander;
