@@ -12,7 +12,7 @@ public class SceneSwitch : MonoBehaviour
     private bool _paused = false;
     public Canvas _escapeMenu = null;
 
-    public void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape) && _escapeMenu != null)
         {
@@ -30,10 +30,10 @@ public class SceneSwitch : MonoBehaviour
         SceneManager.LoadScene("Level 1"); //change to level1
     }
 
-    public void Scene1Multi() 
+    public void Scene1Multi()
     {
         GameManager.GManager.SwapToMulti();
-        SceneManager.LoadScene("Level 1"); 
+        SceneManager.LoadScene("Level 1");
     }
 
     public void EndScene() //Loads ending scene when function called

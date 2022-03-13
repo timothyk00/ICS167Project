@@ -9,7 +9,7 @@ public class ProjectileInterface : MonoBehaviour
     private string elementType;
     private float pSpeed = 0f;
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
        scriptCheck = this.GetComponent<ElementTyping>();
        if (scriptCheck != null)
@@ -35,7 +35,7 @@ public class ProjectileInterface : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         lifeTimer-=Time.deltaTime;
         if (lifeTimer<=0f)
@@ -47,7 +47,7 @@ public class ProjectileInterface : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision other)
+    private void OnCollisionEnter(Collision other)
     {
     if ((other.gameObject.tag == "projectile" && elementType == "earth") || (other.gameObject.tag =="block" && elementType != "fire") || elementType == "heal")
     {

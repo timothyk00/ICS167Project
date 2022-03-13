@@ -33,9 +33,10 @@ public class Goal : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "Player" && allEnemies.Length==0)
+        Debug.Log(allEnemies.Length);
+        if (collision.gameObject.tag == "Player" && allEnemies.Length<=0)
             SceneManager.LoadScene("Victory"); ;
     }
     

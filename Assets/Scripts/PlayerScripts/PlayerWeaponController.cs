@@ -35,7 +35,7 @@ public class PlayerWeaponController : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         _fireButton = "Fire" + this.GetComponent<PlayerMovementController>()._playerNum;
         _swapButton = "Swap" + this.GetComponent<PlayerMovementController>()._playerNum;
@@ -45,7 +45,7 @@ public class PlayerWeaponController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (Input.GetButtonDown(_swapButton))
             Swap();

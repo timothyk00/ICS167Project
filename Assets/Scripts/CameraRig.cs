@@ -7,7 +7,7 @@ public class CameraRig : MonoBehaviour
 {
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         if (GameManager.GManager.GetNumCameras() == 2)
         {
@@ -23,7 +23,7 @@ public class CameraRig : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
 
     }

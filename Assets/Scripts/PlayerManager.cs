@@ -30,12 +30,7 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-        
-    }
-
-    void Update()
+    private void Update()
     {
         CheckPlayersAlive();
     }

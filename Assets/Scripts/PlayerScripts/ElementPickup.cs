@@ -22,14 +22,14 @@ public class ElementPickup : MonoBehaviour
 
     AbilityFactory myFactory = new AbilityFactory(); //create a new abilit/Element Factory
 
-     void Start()
+     private void Start()
     {
         pickUpButton = "pickUp" + this.GetComponent<PlayerMovementController>()._playerNum;
         playerWC = this.GetComponent<PlayerWeaponController>();    
         currentPos = this.transform.position;
         }
 
-    void Update()
+    private void Update()
     {
         float distance = Vector3.Distance(this.transform.position, currentPos);
         if (distance <= 5 && canPickup)
@@ -66,7 +66,7 @@ public class ElementPickup : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Powerup" && !canPickup) //If colliding with any tag with Player
         {

@@ -14,13 +14,13 @@ public class PlayerHealthSystem : MonoBehaviour
     [SerializeField] private Canvas _deathCanvas;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         _deathCanvas.enabled = false;
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (_health <= 0)
         {
@@ -47,7 +47,7 @@ public class PlayerHealthSystem : MonoBehaviour
         yield return new WaitForSeconds(0.01f);
         playerAnimator.SetBool("GetHit", false);
     }
-    public void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Enemy")
         {
