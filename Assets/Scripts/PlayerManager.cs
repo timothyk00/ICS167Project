@@ -11,7 +11,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private GameObject _helperPrefab;
     [SerializeField] private SceneSwitch sceneSwitch;
 
-    private int _spawnOffset = 5;
+    private int _spawnOffset = -5;
 
     private void Awake()
     {
