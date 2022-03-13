@@ -683,6 +683,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11a355802c97c2f468e558b765ff7af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneSwitch: {fileID: 719926606}
+  objectiveC: {fileID: 1070878099}
 --- !u!1001 &241569324
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2489,7 +2491,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _escapeMenu: {fileID: 1620575202}
-  objectiveC: {fileID: 1070878099}
 --- !u!1 &776839018
 GameObject:
   m_ObjectHideFlags: 0

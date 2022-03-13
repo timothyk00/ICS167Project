@@ -9,7 +9,7 @@ public class PlayerManager : MonoBehaviour
     private GameObject _goal;
     [SerializeField] private GameObject _playerPrefab;
     [SerializeField] private GameObject _helperPrefab;
-    public SceneSwitch sceneSwitch;
+    [SerializeField] private SceneSwitch sceneSwitch;
 
     private int _spawnOffset = 5;
 
