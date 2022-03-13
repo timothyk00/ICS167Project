@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
 
     protected Slider _healthSlider;
 
-    protected int _health;
+    protected float _health;
     protected int _attack;
 
     // Enemy States
@@ -180,11 +180,16 @@ public class Enemy : MonoBehaviour
     // Take Damage
     void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "projectile" || collision.gameObject.tag == "bolt" || collision.gameObject.tag == "wave")
+        if( collision.gameObject.tag == "bolt" || collision.gameObject.tag == "wave")
         {
-            _health-=10;
+            _health-=5f;
             _healthSlider.value = _health;
 
+        }
+        if (collision.gameObject.tag == "projectile")
+        {
+            _health -= 3.5f;
+            _healthSlider.value = _health;
         }
 
         if (_health <= 0)
