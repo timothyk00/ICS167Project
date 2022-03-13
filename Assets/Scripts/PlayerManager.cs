@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-// Timothy Kwon
+// Timothy Kwon, Cleon Doan
 public class PlayerManager : MonoBehaviour
 {
     private GameObject _goal;

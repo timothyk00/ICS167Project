@@ -37,6 +37,12 @@ public class ElementPickup : MonoBehaviour
             Debug.Log(distance);
             duration = pickUpTimer;
         }
+        if (powerUp == null) //if powerup picked up by another player
+        {
+            canPickup = false;
+            duration = 0;
+        }
+
         if (canPickup && Input.GetButtonDown(pickUpButton))
         {
             if (playerWC._weapons.Count == 2)
@@ -64,11 +70,12 @@ public class ElementPickup : MonoBehaviour
             duration = 0;
             interactText.SetActive(false);
         }
+        
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Powerup" && !canPickup) //If colliding with any tag with Player
+        if (collision.gameObject.tag == "Powerup" && !canPickup) //If colliding with any tag with powerUp
         {
             interactText = collision.gameObject.transform.GetChild(0).gameObject;
             interactText.SetActive(true); 
