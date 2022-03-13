@@ -24,7 +24,7 @@ public class PlayerManager : MonoBehaviour
         {
             for (int i = 0; i < 2; i++)
             {
-                GameObject pp = Instantiate(_playerPrefab, new Vector3(-40, .5f, _spawnOffset * i), Quaternion.Euler(new Vector3(0, 90, 0)));
+                GameObject pp = Instantiate(_playerPrefab, new Vector3(-40, 0, _spawnOffset * i), Quaternion.Euler(new Vector3(0, 90, 0)));
                 pp.GetComponent<PlayerMovementController>()._playerNum = 1 + i;
             }
         }

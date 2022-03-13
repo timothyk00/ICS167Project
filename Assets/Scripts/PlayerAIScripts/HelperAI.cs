@@ -94,10 +94,13 @@ public class HelperAI : MonoBehaviour
         {
             //WRONG I NEED TO FIX TO FIND ALL ENEMIES
             //raycastInfo.transform.gameObject.tag == target &&
-            if ( Vector3.Distance(this.transform.position, ClosestEnemy().transform.position) < range)
+            if (ClosestEnemy() != null)
             {
-                return true;
+                if (Vector3.Distance(this.transform.position, ClosestEnemy().transform.position) < range)
+                {
+                    return true;
                 }
+            }
         }
         return false;
     }

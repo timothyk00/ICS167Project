@@ -154,16 +154,20 @@ public class Enemy : MonoBehaviour
     // Can the enemy see the Player from its current location
     protected virtual bool CanSeePlayer(int range)
     {
-        RaycastHit raycastInfo;
-        Vector3 rayToTarget = _player.transform.position - this.transform.position;
-
-        // Perform a raycast to determine if there's anything between the enemy and the player
-        if (Physics.Raycast(this.transform.position, rayToTarget, out raycastInfo))
+        if (_player != null)
         {
-            if (raycastInfo.transform.gameObject.tag == "Player" || Vector3.Distance(this.transform.position, _player.transform.position) < range)
+            RaycastHit raycastInfo;
+            Vector3 rayToTarget = _player.transform.position - this.transform.position;
+
+            // Perform a raycast to determine if there's anything between the enemy and the player
+            if (Physics.Raycast(this.transform.position, rayToTarget, out raycastInfo))
             {
-                return true;
+                if (raycastInfo.transform.gameObject.tag == "Player" || Vector3.Distance(this.transform.position, _player.transform.position) < range)
+                {
+                    return true;
+                }
             }
+            return false;
         }
         return false;
     }
@@ -181,16 +185,19 @@ public class Enemy : MonoBehaviour
     // Take Damage
     void OnCollisionEnter(Collision collision)
     {
-        if( collision.gameObject.tag == "bolt" || collision.gameObject.tag == "wave")
+        if (_healthSlider != null)
         {
-            _health-=5f;
-            _healthSlider.value = _health;
+            if (collision.gameObject.tag == "bolt" || collision.gameObject.tag == "wave")
+            {
+                _health -= 5f;
+                _healthSlider.value = _health;
 
-        }
-        if (collision.gameObject.tag == "projectile")
-        {
-            _health -= 3.5f;
-            _healthSlider.value = _health;
+            }
+            if (collision.gameObject.tag == "projectile")
+            {
+                _health -= 3.5f;
+                _healthSlider.value = _health;
+            }
         }
 
         if (_health <= 0)

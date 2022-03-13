@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-//Timothy Kwon
+//Timothy Kwon, Cleon Doan
 public class Goal : MonoBehaviour
 {
     [SerializeField] private SceneSwitch sceneSwitch;
@@ -37,7 +37,7 @@ public class Goal : MonoBehaviour
     {
         if (collision != null){
             if (collision.gameObject.tag == "Player" && allEnemies.Length <= 0)
-                SceneManager.LoadScene("Victory"); ;
+                sceneSwitch.EndScene();
         }
     }
     
