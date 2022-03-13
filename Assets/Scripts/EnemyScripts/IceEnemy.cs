@@ -7,6 +7,8 @@ using UnityEngine.AI;
 //Kevin Luu
 public class IceEnemy : ElementEnemy
 {
+    private int _reloadTime = 3;
+    
     public IceEnemy()
     {
         _health = 10;

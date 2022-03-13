@@ -7,6 +7,7 @@ using UnityEngine.AI;
 //Kevin Luu
 public class ElementEnemy : ShootingEnemy
 {
+    private int _relaodTime = 1;
     private enum ELEMENTENEMY_STATE
     {
         Wander,
