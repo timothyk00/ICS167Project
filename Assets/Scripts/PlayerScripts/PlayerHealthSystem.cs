@@ -9,7 +9,7 @@ public class PlayerHealthSystem : MonoBehaviour
 {
     public int _health = 100;
     public Slider _healthSlider;
-    public Animator GetHit_Animator;
+    public Animator playerAnimator;
 
     [SerializeField] private Canvas _deathCanvas;
 
@@ -25,27 +25,33 @@ public class PlayerHealthSystem : MonoBehaviour
         if (_health <= 0)
         {
             if (GameManager.GManager.IsSinglePlayer())
-                gameObject.SetActive(false);
-            else
+            {
                 StartCoroutine(DeathRoutine());
+                gameObject.SetActive(false);
+            }
+            else
+            {
+                StartCoroutine(DeathRoutine());
+            }
         }
     }
 
     private IEnumerator DeathRoutine()
     {
         _deathCanvas.enabled = true;
-
+        playerAnimator.SetBool("Death", true);
+        yield return new WaitForSeconds(2f);
         if (GameManager.GManager.GetPlayers().Length > 1)
-            yield return new WaitForSeconds(0.25f);
+            yield return new WaitForSeconds(0.5f);
 
         gameObject.SetActive(false);
     }
 
     private IEnumerator GetHit_Animation()
     {
-        GetHit_Animator.SetBool("GetHit", true);
+        playerAnimator.SetBool("GetHit", true);
         yield return new WaitForSeconds(0.01f);
-        GetHit_Animator.SetBool("GetHit", false);
+        playerAnimator.SetBool("GetHit", false);
     }
     public void OnCollisionEnter(Collision collision)
     {
