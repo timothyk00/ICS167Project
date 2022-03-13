@@ -38,8 +38,8 @@ public class ShootingEnemy : Enemy
 
     void Start()
     {
-        _healthSlider = this.GetComponentInChildren<Slider>();
-        _healthSlider.maxValue = _health;
+        //_healthSlider = this.GetComponentInChildren<Slider>();
+        //_healthSlider.maxValue = _health;
 
         _AIweapons.Add(_myFactory.GetAbility("ice")); //calls the elementfactory to receive weapon 
         _enemy = this.GetComponent<NavMeshAgent>();
