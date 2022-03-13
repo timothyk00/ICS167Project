@@ -4087,6 +4087,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: 100
   _healthSlider: {fileID: 5702182465331492917}
+  GetHit_Animator: {fileID: 7892364135500003659}
   _deathCanvas: {fileID: 1834833746051843977}
 --- !u!114 &7841631054084564396
 MonoBehaviour:

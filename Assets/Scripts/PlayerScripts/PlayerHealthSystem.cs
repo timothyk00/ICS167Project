@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-//Timothy Kwon
+//Timothy Kwon, Cleon Doan->animation
 
 public class PlayerHealthSystem : MonoBehaviour
 {
     public int _health = 100;
     public Slider _healthSlider;
+    public Animator GetHit_Animator;
 
     [SerializeField] private Canvas _deathCanvas;
 
@@ -40,6 +41,12 @@ public class PlayerHealthSystem : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    private IEnumerator GetHit_Animation()
+    {
+        GetHit_Animator.SetBool("GetHit", true);
+        yield return new WaitForSeconds(0.01f);
+        GetHit_Animator.SetBool("GetHit", false);
+    }
     public void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Enemy")
@@ -51,6 +58,7 @@ public class PlayerHealthSystem : MonoBehaviour
         }
         if(collision.gameObject.tag == "projectile" || collision.gameObject.tag == "bolt" || collision.gameObject.tag == "wave")
         {
+            StartCoroutine("GetHit_Animation");
             _health-=10;
             _healthSlider.value = _health;
         }
