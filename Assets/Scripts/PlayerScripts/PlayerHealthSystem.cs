@@ -24,27 +24,21 @@ public class PlayerHealthSystem : MonoBehaviour
     {
         if (_health <= 0)
         {
-            if (GameManager.GManager.IsSinglePlayer())
-            {
+
                 StartCoroutine(DeathRoutine());
-                gameObject.SetActive(false);
-            }
-            else
-            {
-                StartCoroutine(DeathRoutine());
-            }
         }
     }
 
     private IEnumerator DeathRoutine()
     {
-        _deathCanvas.enabled = true;
         playerAnimator.SetBool("Death", true);
-        yield return new WaitForSeconds(2f);
-        if (GameManager.GManager.GetPlayers().Length > 1)
-            yield return new WaitForSeconds(0.5f);
-
+        yield return new WaitForSeconds(1f);
+        _deathCanvas.enabled = true; //doesnt working because private field
+        yield return new WaitForSeconds(1f);
         gameObject.SetActive(false);
+  
+    
+
     }
 
     private IEnumerator GetHit_Animation()

@@ -9,6 +9,7 @@ public class PlayerManager : MonoBehaviour
     private GameObject _goal;
     [SerializeField] private GameObject _playerPrefab;
     [SerializeField] private GameObject _helperPrefab;
+    public SceneSwitch sceneSwitch;
 
     private int _spawnOffset = 5;
 
@@ -43,13 +44,8 @@ public class PlayerManager : MonoBehaviour
     {
         if (GameManager.GManager.GetPlayers().Length == 0)
         {
-            EndScene();
+            sceneSwitch.EndScene();
         }
-    }
-
-    private void EndScene() //Loads ending scene when function called
-    {
-        SceneManager.LoadScene("Victory");
     }
 
 }

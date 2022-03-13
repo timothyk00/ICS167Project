@@ -28,7 +28,7 @@ public class ProjectileInterface : MonoBehaviour
                 break;
             case "ice":
                 lifeTimer = 2f;
-                pSpeed = 10.0f;
+                pSpeed = 20.0f;
                 break;
                 }
        }
