@@ -17,6 +17,7 @@ public class ElementEnemy : ShootingEnemy
     
     void Update()
     {
+        _player = GetClosestPlayer();
         switch(_elementEnemyState)
         {
             case ELEMENTENEMY_STATE.Wander:

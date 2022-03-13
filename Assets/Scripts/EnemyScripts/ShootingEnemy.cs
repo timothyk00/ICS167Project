@@ -15,7 +15,7 @@ using ElementFactory; //include using element factory
 public class ShootingEnemy : Enemy
 {
     //Self Destruct counter
-    private int _selfD = 20; 
+    private int _selfD = 8; 
     protected List<Ability> _AIweapons = new List<Ability>();  //weapons inventory
     protected AbilityFactory _myFactory = new AbilityFactory(); //element factory 
     
@@ -49,6 +49,7 @@ public class ShootingEnemy : Enemy
 
     void Update()
     {
+        _player = GetClosestPlayer();
         switch(_shootEnemyState)
         {
             case SHOOTENEMY_STATE.Idle:
