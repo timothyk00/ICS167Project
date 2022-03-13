@@ -27,6 +27,8 @@ public class Goal : MonoBehaviour
         {
             if (allEnemies.Length == 0)
                 objectiveC.GetComponent<TMP_Text>().text = "Current Objective:\n Reach the green checkpoint\n to the north!";
+            else if (GameObject.FindGameObjectsWithTag("wall").Length > 0)
+                objectiveC.GetComponent<TMP_Text>().text = "Current Objective:\n Defend yourself against the\n shooting enemy and use the ice\n powerup to break the ice wall!";
             else
                 objectiveC.GetComponent<TMP_Text>().text = "Current Objective:\n Defeat all the enemies!\n Enemies Remaining: " + (allEnemies.Length);
         }
