@@ -7,7 +7,6 @@ using UnityEngine.AI;
 //Kevin Luu
 public class IceEnemy : ElementEnemy
 {
-    
     public IceEnemy()
     {
         _health = 10;

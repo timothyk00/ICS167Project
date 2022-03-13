@@ -162,7 +162,6 @@ public class Enemy : MonoBehaviour
         {
             if (raycastInfo.transform.gameObject.tag == "Player" || Vector3.Distance(this.transform.position, _player.transform.position) < range)
             {
-                Debug.Log("Can See");
                 return true;
             }
         }

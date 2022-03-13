@@ -15,11 +15,6 @@ public class ElementEnemy : ShootingEnemy
 
     private ELEMENTENEMY_STATE _elementEnemyState;
     
-    public ElementEnemy()
-    {
-        _health = 10;
-    }
-
     void Update()
     {
         switch(_elementEnemyState)

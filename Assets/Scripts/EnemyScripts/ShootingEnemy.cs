@@ -61,7 +61,6 @@ public class ShootingEnemy : Enemy
             ShootAttack();
             if (!CanSeePlayer(20))
             {
-                Debug.Log("Switch to Idle");
                 _shootEnemyState = SHOOTENEMY_STATE.Idle;
             }
             break;
