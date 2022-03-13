@@ -160,9 +160,11 @@ public class Enemy : MonoBehaviour
         // Perform a raycast to determine if there's anything between the enemy and the player
         if (Physics.Raycast(this.transform.position, rayToTarget, out raycastInfo))
         {
-            if (raycastInfo.transform.gameObject.tag == "Player" && Vector3.Distance(this.transform.position, _player.transform.position) < range)
+            if (raycastInfo.transform.gameObject.tag == "Player" || Vector3.Distance(this.transform.position, _player.transform.position) < range)
+            {
                 Debug.Log("Can See");
                 return true;
+            }
         }
         return false;
     }

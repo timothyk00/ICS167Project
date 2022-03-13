@@ -5,10 +5,10 @@ using UnityEngine.UI;
 using UnityEngine.AI;
 
 //Kevin Luu
-public class FireEnemy : ElementEnemy
+public class IceEnemy : ElementEnemy
 {
     
-    public FireEnemy()
+    public IceEnemy()
     {
         _health = 10;
     }
@@ -22,7 +22,7 @@ public class FireEnemy : ElementEnemy
         _enemy.speed = 3.5f;
         _enemy.acceleration = 8f;
 
-        _AIweapons.Add(_myFactory.GetAbility("fire"));
+        _AIweapons.Add(_myFactory.GetAbility("ice"));
         _player = GetClosestPlayer();
         _destructable = false;
     }
