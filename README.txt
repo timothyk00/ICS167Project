@@ -34,4 +34,7 @@
 
 Single Player: A helper player AI will be spawned in to help
 Local Multiplayer: Two players will play at a time (with no helper AI)
+
+*hint: the first enemy you encounter will not die from your spells! You must defend yourself
+with the Earth element until it self-destructs.
  
