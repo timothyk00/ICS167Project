@@ -52,11 +52,8 @@ public class Enemy : MonoBehaviour
             switch(_enemyState)
             {
                 case ENEMY_STATE.Wander:
-                    if (!CanSeePlayer(10))
-                    {
-                        Wander();
-                    }
-                    else if (CanSeePlayer(10))
+                    Wander();
+                    if (CanSeePlayer(10))
                     {
                         _enemyState = ENEMY_STATE.Pursue;
                     }

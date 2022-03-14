@@ -71,7 +71,8 @@ public class HelperAI : MonoBehaviour
     // Follows Player
     void Follow()
     {
-        _helperAI.SetDestination(_player.transform.position);
+        if (_player != null)
+            _helperAI.SetDestination(_player.transform.position);
     }
 
     private GameObject[] GetEnemies()
