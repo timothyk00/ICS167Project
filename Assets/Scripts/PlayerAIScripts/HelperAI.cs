@@ -11,8 +11,8 @@ public class HelperAI : MonoBehaviour
     public NavMeshAgent _helperAI;
     private GameObject _player;
 
-    private int _health; // Not referenced yet
-    private Slider _healthSlider; // Not referenced yet
+    // private int _health; // Not referenced yet
+    // private Slider _healthSlider; // Not referenced yet
 
     private PlayerWeaponController _playerWC;
 
