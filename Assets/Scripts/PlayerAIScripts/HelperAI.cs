@@ -49,7 +49,6 @@ public class HelperAI : MonoBehaviour
     {
         _enemies = GetEnemies();
         switch(_helperState)
-
         {
             case HELPER_STATE.Follow:
                 Follow();
@@ -72,8 +71,7 @@ public class HelperAI : MonoBehaviour
     // Follows Player
     void Follow()
     {
-        if (_player != null)
-            _helperAI.SetDestination(_player.transform.position);
+        _helperAI.SetDestination(_player.transform.position);
     }
 
     private GameObject[] GetEnemies()
